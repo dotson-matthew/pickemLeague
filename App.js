@@ -69,7 +69,7 @@ function DetailsScreen({route, navigation}){
 
 
 function CreatePostScreen({ navigation, route }) {
-  const [postText, setPostText] = React.useState('');
+  const [postText, setPostText] = React.useState([]);
 
   return (
     <>
@@ -78,7 +78,7 @@ function CreatePostScreen({ navigation, route }) {
         placeholder="What's on your mind?"
         style={{ height: 200, padding: 10, backgroundColor: 'white' }}
         value={postText}
-        onChangeText={setPostText}
+        onChangeText={setPostText()}
       />
       <Button
         title="Done"
