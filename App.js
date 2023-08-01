@@ -2,7 +2,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput} from 'react-native';
 /*********************************************************************************
  * END IMPORT STATEMENTS *********************************************************
  * ******************************************************************************* */
@@ -14,8 +14,16 @@ const Stack = createNativeStackNavigator();
 /***********************************************************************************
  * SCREENS ::::  Here lies the section for screens in the app **********************
  ***********************************************************************************/
+/*route allows us to send context back to other page with forward & backward parameters 
+*/
+function HomeScreen({navigation, route}) {
+  React.useEffect(() => {
+    if (route.params?.post) {
+      // Post updated, do something with route.params.post
+      // For example, send the post to the server
+    }
+  }, [route.params?.post]);
 
-function HomeScreen({navigation}) {
   return (
     <View style= {styles.home_container}>
       <Text>HomeScreen</Text>
@@ -26,6 +34,11 @@ function HomeScreen({navigation}) {
           itemId:86, price:'$'+4.30}
         )}
       />
+      <Button
+        title="Create post"
+        onPress={() => navigation.push('CreatePost')}
+      />
+      <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
     </View>
   );
 }
@@ -52,6 +65,35 @@ function DetailsScreen({route, navigation}){
     </View>
   );
 }
+
+
+
+function CreatePostScreen({ navigation, route }) {
+  const [postText, setPostText] = React.useState('');
+
+  return (
+    <>
+      <TextInput
+        multiline
+        placeholder="What's on your mind?"
+        style={{ height: 200, padding: 10, backgroundColor: 'white' }}
+        value={postText}
+        onChangeText={setPostText}
+      />
+      <Button
+        title="Done"
+        onPress={() => {
+          // Pass and merge params back to home screen
+          navigation.navigate({
+            name: 'Home',
+            params: { post: postText },
+            merge: true,
+          });
+        }}
+      />
+    </>
+  );
+}
 /***********************************************************************************
  * END ::::::SCREENS :::::  ********************************************************
  ***********************************************************************************/
@@ -70,6 +112,10 @@ function App() {
             name ="Details" 
             component={DetailsScreen}
             initialParams={{price: '$69.69'}}
+          />
+          <Stack.Screen
+            name= "CreatePost"
+            component= {CreatePostScreen}
           />
       </Stack.Navigator>
     </NavigationContainer>
