@@ -1,7 +1,6 @@
 export const COLORS = {
-    whygolfgreen: "#1a4029",
-    whygolflightgreen: "#0e4928",
-    orange: "#fe4101",
+    darkGreen: "#1a4029",
+    lightOrange: "#ffa500",
     gray: "#555759",
     lightGray: "#cac8c7",
     lightGrayAlt: "#a19d9c",
@@ -10,6 +9,6 @@ export const COLORS = {
     lightGreen: "#8cc94c",
     darkGreen: "#18aa4c",
     yellow: "#f5f601",
-    lightorange: "#f07c23",
+    orange: "#f07c23",
     red: "#f50001"
 }

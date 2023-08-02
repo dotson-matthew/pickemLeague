@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, TextInput} from 'react-native';
+import { COLORS } from './assets/COLORS';
 
 
 /*********************************************************************************
@@ -29,7 +30,7 @@ const WeekNumber= 6;
 function HomeScreen({navigation, route}) {
   React.useEffect(() => {
     if (route.params?.post) {
-      route.params.post = route.params.post + 'Extra String';
+      route.params.post = route.params.post;
     }
   }, [route.params?.post]);
   
@@ -117,47 +118,64 @@ function CreatePostScreen({ navigation, route }) {
 /******************************************************************************* */
 
 function SubmissionScreen({ navigation, route }) {
+  React.useEffect(() => {
+    if (route.params?.triple) {
+      route.params.triple = route.params.triple;
+    }
+  }, [route.params?.triple]);
+
   const [selectionSet, setSelectionSet] = React.useState(['','','','','','','','']);
-  
+  const [triple, setTriple] = React.useState('');
 
   return (
 
-  <View>
-    <View style={styles.row}>
-      
-      <Button
-          title= {"PYO1 - " + JSON.stringify(selectionSet[0])}
-          onPress={() => {
-              selectionSet[0] = '0';
-              setSelectionSet([...selectionSet])
-          }}
-      />
-      <View style={styles.rowWhite}>
+  <View style = {styles.box}>
+    <View >
+      <View style={styles.row}>
+        
         <Button
-            title= {"Triple Play - " + JSON.stringify(selectionSet[1])}
+            title= {"PYO1 - " + JSON.stringify(selectionSet[0])}
             onPress={() => {
                 selectionSet[0] = '0';
                 setSelectionSet([...selectionSet])
             }}
         />
+        <Button
+            title= {"PYO2 - " + JSON.stringify(selectionSet[1])}
+            onPress={() => {
+                selectionSet[1] = '1';
+                setSelectionSet([...selectionSet])
+            }}
+        />
       </View>
-
-      <View>
-        <Text>{JSON.stringify(selectionSet)}</Text>
-      </View>
-      
 
     </View>
 
+    <View style={styles.rowWhite}>
+      <Button
+          title= {"Triple Play - " + JSON.stringify(selectionSet[7])}
+          onPress={() => {
+              selectionSet[7] = '3x';
+              setSelectionSet([...selectionSet])
+              navigation.navigate('Submission2',{
+              } 
+                
+              )
+            
+          }}
+      />
+    </View>
+  
+      <View>
+        <Text>{JSON.stringify(selectionSet)}</Text>
+      </View>
   </View>
     
   );
 }
 function SubmissionScreen2({ navigation, route }) {
-  const [selection, setSelection] = React.useState([]);
-
+  
   return (
-
     <View>
       
 
@@ -195,6 +213,11 @@ function App() {
             component= {SubmissionScreen}
             options={{title: 'Submission for Week ' + WeekNumber}}
           />
+           <Stack.Screen
+            name= "Submission2"
+            component= {SubmissionScreen2}
+            options={{title: 'Submission2 for Week ' + WeekNumber}}
+          />
       </Stack.Navigator>
     </NavigationContainer>
     
@@ -207,7 +230,7 @@ function App() {
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
-    backgroundColor: '#aaf',
+    backgroundColor: COLORS.orange,
     justifyContent: 'center',
     
   },
@@ -229,6 +252,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  box: {
+    flex: 1,
+    backgroundColor: 'pink',
+    justifyContent: 'space-between',
+    padding: 25,
+    margin: 20
+
+  },
+  
 });
 
 
