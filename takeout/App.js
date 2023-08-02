@@ -3,7 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, TextInput} from 'react-native';
-
+import { Dropdown } from 'react-native-material-dropdown';
+import { COLORS } from './assets/COLORS';
 
 /*********************************************************************************
  * END IMPORT STATEMENTS *********************************************************
@@ -145,7 +146,9 @@ function SubmissionScreen({ navigation, route }) {
       <View>
         <Text>{JSON.stringify(selectionSet)}</Text>
       </View>
-      
+      <View>
+        <Text>{JSON.stringify(items)}</Text>
+      </View>
 
     </View>
 
@@ -207,7 +210,7 @@ function App() {
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
-    backgroundColor: '#aaf',
+    backgroundColor: COLORS.Green,
     justifyContent: 'center',
     
   },
