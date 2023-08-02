@@ -3,6 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, TextInput} from 'react-native';
+import { Dropdown } from 'react-native-material-dropdown';
+
 /*********************************************************************************
  * END IMPORT STATEMENTS *********************************************************
  * ******************************************************************************* */
@@ -10,6 +12,14 @@ import { Button, StyleSheet, Text, View, TextInput} from 'react-native';
 
 /** Stack Navigation Creation */
 const Stack = createNativeStackNavigator();
+const WeekNumber= 6;
+/*********************************************************************************
+ * ***************    Components   ***********************************************
+ *********************************************************************************/
+
+
+
+
 
 /***********************************************************************************
  * SCREENS ::::  Here lies the section for screens in the app **********************
@@ -19,11 +29,10 @@ const Stack = createNativeStackNavigator();
 function HomeScreen({navigation, route}) {
   React.useEffect(() => {
     if (route.params?.post) {
-      // Post updated, do something with route.params.post
-      // For example, send the post to the server
+      route.params.post = route.params.post + 'Extra String';
     }
   }, [route.params?.post]);
-
+  
   return (
     <View style= {styles.home_container}>
       <Text>HomeScreen</Text>
@@ -31,8 +40,20 @@ function HomeScreen({navigation, route}) {
         title="Go to Details"
         onPress={() => navigation.navigate('Details', 
         {
-          itemId:86, price:'$'+4.30}
+          itemId:86, price:'$'+4.30
+        }
         )}
+      />
+      <Button
+        title="Submission Screen"
+        onPress={() => {
+          
+          navigation.push('Submission')
+        }}
+      />
+      <Button
+        title="Change Title"
+        onPress={() => navigation.setOptions({title:'Updated!'})}
       />
       <Button
         title="Create post"
@@ -42,7 +63,7 @@ function HomeScreen({navigation, route}) {
     </View>
   );
 }
-
+/****************************************************************** */
 function DetailsScreen({route, navigation}){
   const {itemId, price} = route.params;
   return (
@@ -66,19 +87,18 @@ function DetailsScreen({route, navigation}){
   );
 }
 
-
+/************************************************************************* */
 
 function CreatePostScreen({ navigation, route }) {
-  const [postText, setPostText] = React.useState([]);
+  const [postText, setPostText] = React.useState('');
 
   return (
     <>
       <TextInput
-        multiline
-        placeholder="What's on your mind?"
+        multiline placeholder="What's on your mind?"
         style={{ height: 200, padding: 10, backgroundColor: 'white' }}
         value={postText}
-        onChangeText={setPostText()}
+        onChangeText={setPostText}
       />
       <Button
         title="Done"
@@ -94,6 +114,60 @@ function CreatePostScreen({ navigation, route }) {
     </>
   );
 }
+/******************************************************************************* */
+
+function SubmissionScreen({ navigation, route }) {
+  const [selectionSet, setSelectionSet] = React.useState(['','','','','','','','']);
+  
+
+  return (
+
+  <View>
+    <View style={styles.row}>
+      
+      <Button
+          title= {"PYO1 - " + JSON.stringify(selectionSet[0])}
+          onPress={() => {
+              selectionSet[0] = '0';
+              setSelectionSet([...selectionSet])
+          }}
+      />
+      <View style={styles.rowWhite}>
+        <Button
+            title= {"Triple Play - " + JSON.stringify(selectionSet[1])}
+            onPress={() => {
+                selectionSet[0] = '0';
+                setSelectionSet([...selectionSet])
+            }}
+        />
+      </View>
+
+      <View>
+        <Text>{JSON.stringify(selectionSet)}</Text>
+      </View>
+      <View>
+        <Text>{JSON.stringify(items)}</Text>
+      </View>
+
+    </View>
+
+  </View>
+    
+  );
+}
+function SubmissionScreen2({ navigation, route }) {
+  const [selection, setSelection] = React.useState([]);
+
+  return (
+
+    <View>
+      
+
+    </View>
+    
+  );
+}
+/**SUBMIT SCREENS END ********************************************************* */
 /***********************************************************************************
  * END ::::::SCREENS :::::  ********************************************************
  ***********************************************************************************/
@@ -116,18 +190,40 @@ function App() {
           <Stack.Screen
             name= "CreatePost"
             component= {CreatePostScreen}
+            options={{title: 'Post Screen'}}
+          />
+          <Stack.Screen
+            name= "Submission"
+            component= {SubmissionScreen}
+            options={{title: 'Submission for Week ' + WeekNumber}}
           />
       </Stack.Navigator>
     </NavigationContainer>
     
   );
 }
+
+/***********************************************************************************
+ * END APP container ***************************************************************
+ ***********************************************************************************/
 const styles = StyleSheet.create({
-  details_container: {
-    flex: 1,
+  row: {
+    flexDirection: 'row',
     backgroundColor: '#aaf',
-    alignItems: 'center',
     justifyContent: 'center',
+    
+  },
+  row2: {
+    flexDirection: 'row',
+    backgroundColor: '#aff',
+    justifyContent: 'center',
+    
+  },
+  rowWhite: {
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    
   },
   home_container: {
     flex: 1,
