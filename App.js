@@ -64,6 +64,54 @@ function HomeScreen({navigation, route}) {
     </View>
   );
 }
+/************************************************************************/
+
+
+/************************************************************************/
+
+
+function HomeScreen2({navigation, route}) {
+  
+  
+  React.useEffect(() => {
+    
+    if (route.params?.post) {
+      route.params.post = route.params.post;
+    }
+
+  }, [route.params?.post]);
+  
+  
+  return (
+    <View style= {styles.home_container}>
+      <Text>HomeScreen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details', 
+        {
+          itemId:86, price:'$'+4.30
+        }
+        )}
+      />
+      <Button
+        title="Submission Screen"
+        onPress={() => {
+          
+          navigation.push('Submission')
+        }}
+      />
+      <Button
+        title="Change Title"
+        onPress={() => navigation.setOptions({title:'Updated!'})}
+      />
+      <Button
+        title="Create post"
+        onPress={() => navigation.push('CreatePost')}
+      />
+      <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
+    </View>
+  );
+}
 /****************************************************************** */
 function DetailsScreen({route, navigation}){
   const {itemId, price} = route.params;
@@ -173,7 +221,7 @@ function SubmissionScreen({ navigation, route }) {
     
   );
 }
-function SubmissionScreen2({ navigation, route }) {
+function TriplePlayScreen({ navigation, route }) {
   
   return (
     
@@ -191,6 +239,17 @@ function SubmissionScreen2({ navigation, route }) {
   );
 }
 /**SUBMIT SCREENS END ********************************************************* */
+
+
+
+
+
+
+
+
+
+
+
 /***********************************************************************************
  * END ::::::SCREENS :::::  ********************************************************
  ***********************************************************************************/
@@ -222,7 +281,7 @@ function App() {
           />
            <Stack.Screen
             name= "Submission2"
-            component= {SubmissionScreen2}
+            component= {TriplePlayScreen}
             options={{title: 'Submission2 for Week ' + WeekNumber}}
           />
       </Stack.Navigator>
