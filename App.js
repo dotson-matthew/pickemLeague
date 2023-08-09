@@ -2,7 +2,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, TextInput} from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions} from 'react-native';
 import { COLORS } from './assets/COLORS';
 
 
@@ -176,10 +176,17 @@ function SubmissionScreen({ navigation, route }) {
 function SubmissionScreen2({ navigation, route }) {
   
   return (
-    <View>
-      
+    
+    <TouchableOpacity>
+      <View style={styles.button69}>
+        <Text style={styles.buttonText}>
+          Press Me!
+        </Text>
 
-    </View>
+      </View>
+    </TouchableOpacity>
+
+    
     
   );
 }
@@ -227,6 +234,8 @@ function App() {
 /***********************************************************************************
  * END APP container ***************************************************************
  ***********************************************************************************/
+const buttonWidth = Dimensions.get('window').width * 0.39;
+
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
@@ -260,6 +269,22 @@ const styles = StyleSheet.create({
     margin: 20
 
   },
+  button69: {
+    backgroundColor: COLORS.gray,
+    height: 40,
+    padding: 5, 
+    width: buttonWidth,
+    borderWidth: 1.5,
+    borderColor: COLORS.orange,
+    borderRadius: 10,
+
+  }, 
+  buttonText:{
+    fontSize: 18, 
+    color: 'white',
+    textAlign: 'center',
+    marginTop: 1,
+  }
   
 });
 
