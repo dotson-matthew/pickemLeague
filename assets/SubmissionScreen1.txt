@@ -1,0 +1,46 @@
+﻿Submission Screen 1
+
+
+View{
+    View(triple wide row, padding down){
+        pickButton(0){
+
+        }
+        pickButton(1){
+
+        }
+        pickButton(2){
+
+        }
+
+    }
+    View(double wide row, padding down){
+        pickButton(3){
+
+        }
+        pickButton(4){
+
+        }
+        
+
+    }
+    View(double wide row, padding down){
+        pickButton(5){
+
+        }
+        pickButton(6){
+
+        }
+        
+
+    }
+
+
+
+
+
+
+
+
+
+}

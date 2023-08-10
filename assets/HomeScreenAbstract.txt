@@ -1,0 +1,51 @@
+﻿HomeScreen
+
+{
+	View{
+		/* this view is for the image boxes at the top. Wide margin and spacing */
+		View{
+			View (2 Side by side boxes, screen wide){
+				Image{
+					NFL Photo
+				}
+				Image{
+					Profile Photo: comes from Player Object
+				}	
+			}
+		}
+		/* this view is for the remainder of the screen with page buttons and data boxes */
+		
+		View{
+			View (2 Side by side boxes, screen wide){
+				TouchableOpacity{
+					Current Record:
+					Player.Record.Wins   -    Player.Record.Losses
+				}
+				TouchableOpacity{
+					Standings
+				}	
+			}
+			View (2 Side by side boxes, screen wide){
+				TouchableOpacity{
+					Board
+				}
+				TouchableOpacity{
+					NextWeek
+				}	
+			}
+			View(1 rectangle box, screen wide){
+				TouchableOpacity(OnPress -> Submission Page){
+					Submissions
+				}
+
+
+			}
+
+		
+		}
+	}
+
+
+
+
+}
