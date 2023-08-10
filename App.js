@@ -6,6 +6,7 @@ import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions
 import { COLORS } from './assets/COLORS';
 import NFL_Logo from './assets/NFL_Logo.jpg';
 import Glennon from './assets/Mike_Glennon.jpg';
+import SubmissionButton from './src/components/SubmissionButton';
 
 /*********************************************************************************
  * END IMPORT STATEMENTS *********************************************************
@@ -81,13 +82,13 @@ function HomeScreen({navigation, route}) {
 function HomeScreen2({navigation, route}) {
   
   return (
-    <View>
+    <View style={styles.box}>
 
       <View style={styles.row}>
 
         <View style={styles.imageBox}>
 
-          <Image source={NFL_Logo}/>
+          <Image style = {styles.nflLogo} source={NFL_Logo}/>
 
         </View>
           
@@ -104,13 +105,13 @@ function HomeScreen2({navigation, route}) {
         <View style ={styles.row2}>
 
           <TouchableOpacity>
-            <View style={styles.button69}>
+            <View style={styles.buttonLittle}>
               <Text style={styles.buttonText}>Button</Text> 
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <View style={styles.button69}>
+            <View style={styles.buttonLittle}>
               <Text style={styles.buttonText}>Button</Text> 
             </View>
           </TouchableOpacity>
@@ -120,15 +121,47 @@ function HomeScreen2({navigation, route}) {
         <View style ={styles.row3}>
 
           <TouchableOpacity>
-            <View style={styles.button69}>
+            <View style={styles.buttonLittle}>
               <Text style={styles.buttonText}>Button</Text> 
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <View style={styles.button69}>
+
+            <View style={styles.buttonLittle}>
+
               <Text style={styles.buttonText}>Button</Text> 
+
             </View>
+
+          </TouchableOpacity>
+
+        </View>
+
+
+        <View style ={styles.row3}>
+
+          <TouchableOpacity>
+
+            <View style={styles.buttonRectangle}>
+
+              <Text style={styles.buttonText}>Button</Text> 
+
+            </View>
+
+          </TouchableOpacity>
+
+        </View>
+        <View style ={styles.row3}>
+
+          <TouchableOpacity>
+
+            <View style={styles.buttonRectangle}>
+
+              <Text style={styles.buttonText}>Button</Text> 
+
+            </View>
+
           </TouchableOpacity>
 
         </View>
@@ -238,6 +271,7 @@ function SubmissionScreen({ navigation, route }) {
             
           }}
       />
+      <SubmissionButton selNum={0} set={selectionSet}/>
     </View>
   
       <View>
@@ -252,7 +286,7 @@ function TriplePlayScreen({ navigation, route }) {
   return (
     
     <TouchableOpacity>
-      <View style={styles.button69}>
+      <View style={styles.buttonLittle}>
         <Text style={styles.buttonText}>
           Press Me!
         </Text>
@@ -329,29 +363,32 @@ const buttonWidth = screenWindow.width * 0.39;
 const profilePhotoSpacerH = screenWindow.width * 0.02;
 const profilePhotoSpacerV = screenWindow.height * 0.02;
 const rowSpacerV = screenWindow.height * 0.005;
-const buttonSizerH = screenWindow.height * 0.2
-;
-const buttonSizerV = screenWindow.width * 0.2;
+const buttonSizerH = screenWindow.width * 0.4;
+const buttonSizerV = screenWindow.height * 0.1;
+const buttonRSizerH = screenWindow.width * 0.85;
+const buttonRSizerV = screenWindow.height * 0.1;
 const textSizer = screenWindow.width * 0.06;
+const imageSizer = screenWindow.width * 0.33;
+
+
+
 
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
-    backgroundColor: COLORS.orange,
+    
     justifyContent: 'space-evenly',
     marginVertical: rowSpacerV
     
   },
   row2: {
     flexDirection: 'row',
-    backgroundColor: '#aff',
     justifyContent: 'space-evenly',
     marginVertical: rowSpacerV
     
   },
   row3: {
     flexDirection: 'row',
-    backgroundColor: 'green',
     justifyContent: 'space-evenly',
     marginVertical: rowSpacerV
     
@@ -370,13 +407,11 @@ const styles = StyleSheet.create({
   },
   box: {
     flex:1,
-    backgroundColor: 'pink',
-    justifyContent: 'space-between',
+    backgroundColor:COLORS.lightGray,
     padding: 25,
-    margin: 20
 
   },
-  button69: {
+  buttonLittle: {
     backgroundColor: COLORS.lightBlue,
     height: buttonSizerV, 
     width: buttonSizerH,
@@ -386,7 +421,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
 
-  }, 
+  },
+  buttonRectangle: {
+    backgroundColor: COLORS.lightBlue,
+    height: buttonRSizerV, 
+    width: buttonRSizerH,
+    borderWidth: 1.5,
+    borderColor: COLORS.orange,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
+
+  },
   buttonText:{
     fontSize: textSizer,
     fontWeight: 'bold',
@@ -396,15 +442,24 @@ const styles = StyleSheet.create({
     marginTop: 1,
   }, 
   profilePhoto:{
-    width: 200,
-    height: 200, 
-    borderRadius: 400/ 2, 
+    width: imageSizer,
+    height: imageSizer, 
+    borderRadius: 400/ 2,
+    borderColor: 'black',
+    borderWidth: 3 
     
+  },
+  nflLogo:{
+    width: imageSizer,
+    height: imageSizer, 
+    borderColor: 'black',
+    borderWidth: 3 
   },
   imageBox:{
     paddingHorizontal: profilePhotoSpacerH,
     paddingVertical: profilePhotoSpacerV,
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-evenly',
+    
 
   }
   
