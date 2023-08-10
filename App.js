@@ -2,9 +2,10 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions} from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions, Image} from 'react-native';
 import { COLORS } from './assets/COLORS';
-
+import NFL_Logo from './assets/NFL_Logo.jpg';
+import Glennon from './assets/Mike_Glennon.jpg';
 
 /*********************************************************************************
  * END IMPORT STATEMENTS *********************************************************
@@ -53,6 +54,13 @@ function HomeScreen({navigation, route}) {
         }}
       />
       <Button
+        title="Home Screen"
+        onPress={() => {
+          
+          navigation.push('Home2')
+        }}
+      />
+      <Button
         title="Change Title"
         onPress={() => navigation.setOptions({title:'Updated!'})}
       />
@@ -72,43 +80,61 @@ function HomeScreen({navigation, route}) {
 
 function HomeScreen2({navigation, route}) {
   
-  
-  React.useEffect(() => {
-    
-    if (route.params?.post) {
-      route.params.post = route.params.post;
-    }
-
-  }, [route.params?.post]);
-  
-  
   return (
-    <View style= {styles.home_container}>
-      <Text>HomeScreen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details', 
-        {
-          itemId:86, price:'$'+4.30
-        }
-        )}
-      />
-      <Button
-        title="Submission Screen"
-        onPress={() => {
+    <View>
+
+      <View style={styles.row}>
+
+        <View style={styles.imageBox}>
+
+          <Image source={NFL_Logo}/>
+
+        </View>
           
-          navigation.push('Submission')
-        }}
-      />
-      <Button
-        title="Change Title"
-        onPress={() => navigation.setOptions({title:'Updated!'})}
-      />
-      <Button
-        title="Create post"
-        onPress={() => navigation.push('CreatePost')}
-      />
-      <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
+        <View style={styles.imageBox}>
+
+          <Image source={Glennon} style={styles.profilePhoto} />
+
+        </View>
+            
+      </View>
+
+      <View >
+
+        <View style ={styles.row2}>
+
+          <TouchableOpacity>
+            <View style={styles.button69}>
+              <Text style={styles.buttonText}>Fuck2</Text> 
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <View style={styles.button69}>
+              <Text style={styles.buttonText}>Fuck2</Text> 
+            </View>
+          </TouchableOpacity>
+
+        </View>
+
+        <View style ={styles.row3}>
+
+          <TouchableOpacity>
+            <View style={styles.button69}>
+              <Text style={styles.buttonText}>Fuck2</Text> 
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <View style={styles.button69}>
+              <Text style={styles.buttonText}>Fuck2</Text> 
+            </View>
+          </TouchableOpacity>
+
+        </View>
+
+      </View>
+      
     </View>
   );
 }
@@ -205,7 +231,7 @@ function SubmissionScreen({ navigation, route }) {
           onPress={() => {
               selectionSet[7] = '3x';
               setSelectionSet([...selectionSet])
-              navigation.navigate('Submission2',{
+              navigation.navigate('TriplePlay',{
               } 
                 
               )
@@ -279,10 +305,15 @@ function App() {
             component= {SubmissionScreen}
             options={{title: 'Submission for Week ' + WeekNumber}}
           />
-           <Stack.Screen
-            name= "Submission2"
+          <Stack.Screen
+            name= "TriplePlay"
             component= {TriplePlayScreen}
-            options={{title: 'Submission2 for Week ' + WeekNumber}}
+            options={{title: 'Triple Play for Week ' + WeekNumber}}
+          />
+          <Stack.Screen
+            name= "Home2"
+            component= {HomeScreen2}
+            options={{title: 'HomeScreenBuild'}}
           />
       </Stack.Navigator>
     </NavigationContainer>
@@ -293,19 +324,36 @@ function App() {
 /***********************************************************************************
  * END APP container ***************************************************************
  ***********************************************************************************/
-const buttonWidth = Dimensions.get('window').width * 0.39;
+const screenWindow = Dimensions.get('window');
+const buttonWidth = screenWindow.width * 0.39;
+const profilePhotoSpacerH = screenWindow.width * 0.02;
+const profilePhotoSpacerV = screenWindow.height * 0.02;
+const rowSpacerV = screenWindow.height * 0.005;
+const buttonSizerH = screenWindow.height * 0.2
+;
+const buttonSizerV = screenWindow.width * 0.2;
+const textSizer = screenWindow.width * 0.06;
 
 const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     backgroundColor: COLORS.orange,
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
+    marginVertical: rowSpacerV
     
   },
   row2: {
     flexDirection: 'row',
     backgroundColor: '#aff',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
+    marginVertical: rowSpacerV
+    
+  },
+  row3: {
+    flexDirection: 'row',
+    backgroundColor: 'green',
+    justifyContent: 'space-evenly',
+    marginVertical: rowSpacerV
     
   },
   rowWhite: {
@@ -321,7 +369,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    flex: 1,
+    flex:1,
     backgroundColor: 'pink',
     justifyContent: 'space-between',
     padding: 25,
@@ -329,20 +377,35 @@ const styles = StyleSheet.create({
 
   },
   button69: {
-    backgroundColor: COLORS.gray,
-    height: 40,
-    padding: 5, 
-    width: buttonWidth,
+    backgroundColor: COLORS.lightBlue,
+    height: buttonSizerV, 
+    width: buttonSizerH,
     borderWidth: 1.5,
     borderColor: COLORS.orange,
     borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
 
   }, 
   buttonText:{
-    fontSize: 18, 
-    color: 'white',
+    fontSize: textSizer,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+    color: 'black',
     textAlign: 'center',
     marginTop: 1,
+  }, 
+  profilePhoto:{
+    width: 200,
+    height: 200, 
+    borderRadius: 400/ 2, 
+    
+  },
+  imageBox:{
+    paddingHorizontal: profilePhotoSpacerH,
+    paddingVertical: profilePhotoSpacerV,
+    justifyContent: 'space-evenly'
+
   }
   
 });
