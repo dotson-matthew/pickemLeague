@@ -105,13 +105,13 @@ function HomeScreen2({navigation, route}) {
 
           <TouchableOpacity>
             <View style={styles.button69}>
-              <Text style={styles.buttonText}>Fuck2</Text> 
+              <Text style={styles.buttonText}>Button</Text> 
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity>
             <View style={styles.button69}>
-              <Text style={styles.buttonText}>Fuck2</Text> 
+              <Text style={styles.buttonText}>Button</Text> 
             </View>
           </TouchableOpacity>
 
@@ -121,13 +121,13 @@ function HomeScreen2({navigation, route}) {
 
           <TouchableOpacity>
             <View style={styles.button69}>
-              <Text style={styles.buttonText}>Fuck2</Text> 
+              <Text style={styles.buttonText}>Button</Text> 
             </View>
           </TouchableOpacity>
 
           <TouchableOpacity>
             <View style={styles.button69}>
-              <Text style={styles.buttonText}>Fuck2</Text> 
+              <Text style={styles.buttonText}>Button</Text> 
             </View>
           </TouchableOpacity>
 
