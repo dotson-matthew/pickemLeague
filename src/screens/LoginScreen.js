@@ -11,8 +11,8 @@ import StyleSheet69 from '../components/StyleReference'
 const styles = StyleSheet69();
 
 function LoginScreen({ navigation, route }) {
-    const [username, setUsername] = React.useState('joeyj96@live.com');
-    const [password, setPassword] = React.useState('Ws3_rf5');
+    const [username, setUsername] = React.useState('Developer');
+    const [password, setPassword] = React.useState('DevTest');
   
     const baseUrl = 'https://nflpickemapi.azurewebsites.net';
   
@@ -36,6 +36,7 @@ function LoginScreen({ navigation, route }) {
             navigation.navigate('Home2');
         } else {
             console.log('Login failed');
+            console.log(response.status);
         }
   
       } catch (error) {
