@@ -1,33 +1,92 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions, Image} from 'react-native';
-import { COLORS } from '../../assets/COLORS';
-import NFL_Logo from '../../assets/NFL_Logo.jpg'
-import Glennon from '../../assets/Mike_Glennon.jpg';
+import Select from 'react-select';
+import { Button, StyleSheet, Text, 
+  View, TextInput, TouchableOpacity, 
+  Dimensions, Image} 
+  from 'react-native';
+
 import SubmissionButton from '../components/SubmissionButton';
-import StyleSheet69 from '../components/StyleReference'
+import StyleSheet69 from '../components/StyleReference';
 const styles = StyleSheet69();
 
+
 function SubmissionScreen({ navigation, route }) {
-    
+ 
   
-    const [selectionSet, setSelectionSet] = React.useState(['','','','','','','','']);
-    const [triple, setTriple] = React.useState('');
+  const [selectionSet, setSelectionSet] = React.useState(['1','2','3','4','5','6','7','8']);
+  const [triple, setTriple] = React.useState(-1);
+  const [locked, setLocked] = React.useState([0,0,0,0,0,0,0,0,0]);
+
+
   
-    return (
-  
-    <View style = {styles.box}>
-      <View >
-        
-        <SubmissionButton sel={selectionSet[0]} selNum={0} set={selectionSet}/>
+
+  return (
+
+  <View style = {styles.box}>
+    <View style = {styles.row}>
+      <View style = {styles.categoryBox}>
+        <Text style = {styles.boxText}>
+          PYO
+        </Text>
+        <Text style = {styles.boxText}>
+          1-5:
+        </Text>
       </View>
-    
-        <View>
-          <Text>{JSON.stringify(selectionSet)}</Text>
-        </View>
+      <SubmissionButton selNum={0}/>
+
+      <SubmissionButton selNum={1}/>
+
+      
     </View>
+    <View style = {styles.row}>
+      <SubmissionButton selNum={2}/>
+
+      <SubmissionButton selNum={3}/>
+
+      <SubmissionButton selNum={4}/>
+    </View>
+
+    <View style = {styles.spacer}/>
+
+    <View style = {styles.row}>
+      <View style = {styles.categoryBox}>
+        <Text style = {styles.boxText}>
+          Prime
+        </Text>
+        <Text style = {styles.boxText}>
+          Time:
+        </Text>
+      </View>
+      <SubmissionButton selNum={5}/>
+
+      <SubmissionButton selNum={6}/>
+    </View>
+
+    <View style = {styles.spacer}/>
+
+    <View style = {styles.row}>
+      <View style = {styles.categoryBox}>
+        <Text style = {styles.boxText}>
+          Triple
+        </Text>
+        <Text style = {styles.boxText}>
+          Play:
+        </Text>
+      </View>
+      <SubmissionButton selNum={7}/>
+
+      
+    </View>
+    
+    
+    
+    
+    <View>
+      <Text>{JSON.stringify(selectionSet)}</Text>
+      
+    </View>
+  </View>
+  
       
     );
   }

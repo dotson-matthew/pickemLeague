@@ -24,3 +24,4 @@ function TriplePlayScreen({ navigation, route }) {
   }
 
 export default TriplePlayScreen;
+

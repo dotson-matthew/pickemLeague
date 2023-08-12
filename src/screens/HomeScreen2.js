@@ -38,13 +38,13 @@ function HomeScreen2({navigation, route}) {
           <View style ={styles.row2}>
   
             <TouchableOpacity>
-              <View style={styles.buttonLittle}>
+              <View style={styles.buttonMedium}>
                 <Text style={styles.buttonText}>Button</Text> 
               </View>
             </TouchableOpacity>
   
             <TouchableOpacity>
-              <View style={styles.buttonLittle}>
+              <View style={styles.buttonMedium}>
                 <Text style={styles.buttonText}>Button</Text> 
               </View>
             </TouchableOpacity>
@@ -54,14 +54,14 @@ function HomeScreen2({navigation, route}) {
           <View style ={styles.row3}>
   
             <TouchableOpacity>
-              <View style={styles.buttonLittle}>
+              <View style={styles.buttonMedium}>
                 <Text style={styles.buttonText}>Button</Text> 
               </View>
             </TouchableOpacity>
   
             <TouchableOpacity>
   
-              <View style={styles.buttonLittle}>
+              <View style={styles.buttonMedium}>
   
                 <Text style={styles.buttonText}>Button</Text> 
   
