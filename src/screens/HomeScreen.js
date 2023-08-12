@@ -52,6 +52,10 @@ function HomeScreen({navigation, route}) {
           title="Create post"
           onPress={() => navigation.push('CreatePost')}
         />
+        <Button
+          title="Login"
+          onPress={() => navigation.push('Login')}
+        />
         <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
       </View>
     );

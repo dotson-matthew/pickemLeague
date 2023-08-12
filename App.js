@@ -13,6 +13,7 @@ import CreatePostScreen from './src/screens/CreatePostScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import HomeScreen2 from './src/screens/HomeScreen2';
 import DetailsScreen from './src/screens/DetailsScreen';
+import LoginScreen from './src/screens/LoginScreen';
 import StyleSheet69 from './src/components/StyleReference';
 const styles = StyleSheet69;
 
@@ -57,6 +58,11 @@ function App() {
             name= "Home2"
             component= {HomeScreen2}
             options={{title: 'HomeScreenBuild'}}
+          />
+          <Stack.Screen
+            name="Login"
+            component={LoginScreen}
+            options={{title: 'Login Page'}}
           />
       </Stack.Navigator>
     </NavigationContainer>
