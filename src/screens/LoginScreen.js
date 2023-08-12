@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {StackActions, NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions, Image} from 'react-native';
@@ -7,7 +7,8 @@ import { COLORS } from '../../assets/COLORS';
 import NFL_Logo from '../../assets/NFL_Logo.jpg'
 import Glennon from '../../assets/Mike_Glennon.jpg';
 import SubmissionButton from '../components/SubmissionButton';
-import StyleSheet69 from '../components/StyleReference'
+import StyleSheet69 from '../components/StyleReference';
+
 const styles = StyleSheet69();
 
 function LoginScreen({ navigation, route }) {
@@ -33,7 +34,7 @@ function LoginScreen({ navigation, route }) {
         });
   
         if (response.status == 200) {
-            navigation.navigate('Home2');
+            navigation.dispatch(StackActions.replace('Home',{params: {}}));
         } else {
             console.log('Login failed');
             console.log(response.status);

@@ -9,6 +9,7 @@ function StyleReference(){
   return (styles);
 }
 export default StyleReference;
+
 const screenWindow = Dimensions.get('window');
 const buttonWidth = screenWindow.width * 0.39;
 const profilePhotoSpacerH = screenWindow.width * 0.02;
@@ -123,7 +124,15 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     marginTop: 1,
-  },  
+  },
+  boxText2:{
+    fontSize: textSizer/2,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    color: 'black',
+    textAlign: 'center',
+    marginTop: 1,
+  },   
   profilePhoto:{
     width: imageSizer,
     height: imageSizer, 
@@ -158,6 +167,10 @@ const styles = StyleSheet.create({
   spacer:{
     flexDirection: 'row',
     marginVertical: spacerSizerV, 
-  }
+  },
+  textStyle: {
+    marginVertical: 50
+
+}
   
 });

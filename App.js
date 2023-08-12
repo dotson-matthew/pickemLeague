@@ -16,8 +16,9 @@ import DetailsScreen from './src/screens/DetailsScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen'
 import PickScreen from './src/screens/PickScreen';
+import StandingsScreen from './src/screens/StandingsScreen';
 import StyleSheet69 from './src/components/StyleReference';
-const styles = StyleSheet69;
+const styles = StyleSheet69();
 
 /*********************************************************************************
  * END IMPORT STATEMENTS *********************************************************
@@ -31,10 +32,11 @@ const WeekNumber= 6;
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Login">
           <Stack.Screen 
-            name = "Home" 
-            component={HomeScreen} 
+            name = "Home2" 
+            component={HomeScreen2} 
+            
             options={{title: 'Overview'}}/>
           <Stack.Screen 
             name ="Details" 
@@ -57,9 +59,10 @@ function App() {
             options={{title: 'Triple Play for Week ' + WeekNumber}}
           />
           <Stack.Screen
-            name= "Home2"
-            component= {HomeScreen2}
+            name= "Home"
+            component= {HomeScreen}
             options={{title: 'HomeScreenBuild'}}
+            
           />
           <Stack.Screen
             name="Login"
@@ -75,6 +78,11 @@ function App() {
             name="Pick"
             component={PickScreen}
             options={{title: 'Make a Selection'}}
+          />
+          <Stack.Screen
+            name="Standings"
+            component={StandingsScreen}
+            options={{title: 'Standings'}}
           />
       </Stack.Navigator>
     </NavigationContainer>
