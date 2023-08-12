@@ -5,7 +5,7 @@ import SubmissionButton from '../components/SubmissionButton';
 import StyleSheet69 from '../components/StyleReference'
 const styles = StyleSheet69();
 
-function ConfirmationScreen({ navigation, route }) {
+function PickScreen({ navigation, route }) {
   
     return (
       
@@ -24,5 +24,4 @@ function ConfirmationScreen({ navigation, route }) {
     );
   }
 
-export default ConfirmationScreen;
-
+export default PickScreen;

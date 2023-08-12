@@ -6,10 +6,12 @@ import StyleSheet69 from './StyleReference';
 const styles = StyleSheet69();
 
 
-const SubmissionButton = ({selNum}) => {
+const SubmissionButton = ({navigation, selNum}) => {
   var title = '';
   var primeTime = false;
   var triplePlay = false;
+  var submitButton =false;
+  var style = styles.buttonLittle
   switch (selNum){
     case 0:{
       title = 'PYO #1'
@@ -46,20 +48,41 @@ const SubmissionButton = ({selNum}) => {
     case 7:{
       triplePlay = true;
       title = 'Triple Play'
+      break;
+    }
+    case 8:{
+      submitButton = true;
+      title = 'SUBMIT PICKS'
+      style = styles.buttonRectangle
     }
     
     
   }
-    return (
+    if (submitButton){
+      return (
         <View>
-            <TouchableOpacity>
-              <View style={styles.buttonLittle}>
+            <TouchableOpacity onPress={() => navigation.push('Confirm')}>
+              <View style={style}>
                 <Text style={styles.buttonText}>{title}</Text> 
               </View>
             </TouchableOpacity>
         </View>
         
     )
+    }
+    else{
+      return (
+        <View>
+            <TouchableOpacity>
+              <View style={style}>
+                <Text style={styles.buttonText}>{title}</Text> 
+              </View>
+            </TouchableOpacity>
+        </View>
+        
+    )
+    }
+    
 }
 
 export default SubmissionButton;
