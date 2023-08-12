@@ -97,6 +97,17 @@ const styles = StyleSheet.create({
     alignItems: 'center'
 
   },
+  buttonRectangleCancel: {
+    backgroundColor: COLORS.red,
+    height: buttonRSizerV, 
+    width: buttonRSizerH,
+    borderWidth: 1.5,
+    borderColor: COLORS.orange,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
+
+  },
   buttonText:{
     fontSize: textSizer,
     fontWeight: 'bold',

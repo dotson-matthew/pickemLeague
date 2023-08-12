@@ -7,6 +7,7 @@ const styles = StyleSheet69();
 
 
 const SubmissionButton = ({navigation, selNum}) => {
+ 
   var title = '';
   var primeTime = false;
   var triplePlay = false;
@@ -61,23 +62,52 @@ const SubmissionButton = ({navigation, selNum}) => {
     if (submitButton){
       return (
         <View>
-            <TouchableOpacity onPress={() => navigation.push('Confirm')}>
-              <View style={style}>
-                <Text style={styles.buttonText}>{title}</Text> 
-              </View>
-            </TouchableOpacity>
+            <View>
+              <TouchableOpacity onPress={() => {
+                navigation.push('Confirm')}}>
+                <View style={style}>
+                  <Text style={styles.buttonText}>{title}</Text> 
+                </View>
+              </TouchableOpacity>
+            </View>
+            
+
+            
         </View>
+        
+        
+    )
+    }
+    else if (triplePlay){
+      return (
+        <View>
+            <View>
+              <TouchableOpacity onPress={() => {
+                navigation.push('TriplePlay')}}>
+                <View style={style}>
+                  <Text style={styles.buttonText}>{title}</Text> 
+                </View>
+              </TouchableOpacity>
+            </View>
+            
+
+            
+        </View>
+        
         
     )
     }
     else{
       return (
         <View>
-            <TouchableOpacity>
+          <View>
+            <TouchableOpacity onPress={() => navigation.push('Pick')}>
               <View style={style}>
                 <Text style={styles.buttonText}>{title}</Text> 
               </View>
             </TouchableOpacity>
+          </View>
+          
         </View>
         
     )
