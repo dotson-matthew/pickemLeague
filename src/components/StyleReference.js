@@ -18,8 +18,13 @@ const buttonSizerH = screenWindow.width * 0.4;
 const buttonSizerV = screenWindow.height * 0.1;
 const buttonRSizerH = screenWindow.width * 0.85;
 const buttonRSizerV = screenWindow.height * 0.1;
+const buttonLSizerH = screenWindow.width * 0.25;
+const buttonLSizerV = screenWindow.height * 0.1;
 const textSizer = screenWindow.width * 0.06;
 const imageSizer = screenWindow.width * 0.33;
+const spacerSizerV = screenWindow.height* 0.015;
+const spacerSizerH = screenWindow.width* 0.05;
+
 
 const styles = StyleSheet.create({
   row: {
@@ -61,6 +66,17 @@ const styles = StyleSheet.create({
   },
   buttonLittle: {
     backgroundColor: COLORS.lightBlue,
+    height: buttonLSizerV, 
+    width: buttonLSizerH,
+    borderWidth: 1.5,
+    borderColor: COLORS.orange,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
+
+  },
+  buttonMedium: {
+    backgroundColor: COLORS.lightBlue,
     height: buttonSizerV, 
     width: buttonSizerH,
     borderWidth: 1.5,
@@ -88,7 +104,15 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     marginTop: 1,
-  }, 
+  },
+  boxText:{
+    fontSize: textSizer,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
+    color: 'black',
+    textAlign: 'center',
+    marginTop: 1,
+  },  
   profilePhoto:{
     width: imageSizer,
     height: imageSizer, 
@@ -109,6 +133,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     
 
+  },
+  categoryBox:{
+    height: buttonLSizerV,
+    width: buttonLSizerH,
+    justifyContent: 'space-evenly',
+    borderColor: 'black',
+    borderWidth: 3, 
+    borderRadius: 10
+    
+
+  },
+  spacer:{
+    flexDirection: 'row',
+    marginVertical: spacerSizerV, 
   }
   
 });
