@@ -5,23 +5,35 @@ import SubmissionButton from '../components/SubmissionButton';
 import StyleSheet69 from '../components/StyleReference'
 const styles = StyleSheet69();
 
-function TriplePlayScreen({ navigation, route }) {
+function ConfirmationScreen({ navigation }) {
   
     return (
+      <View style={{flex:1, alignItems:'center'}}>
+        <TouchableOpacity onPress={() => navigation.pop()}>
+          <View style={styles.buttonRectangle}>
+            <Text style={styles.buttonText}>
+              Submit
+            </Text>
+    
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.pop()}>
+          <View style={styles.buttonRectangleCancel}>
+            <Text style={styles.buttonText}>
+              Cancel
+            </Text>
+    
+          </View>
+        </TouchableOpacity>
+        
+      </View>
       
-      <TouchableOpacity>
-        <View style={styles.buttonLittle}>
-          <Text style={styles.buttonText}>
-            Press Me!
-          </Text>
-  
-        </View>
-      </TouchableOpacity>
   
       
       
     );
   }
 
-export default TriplePlayScreen;
+export default ConfirmationScreen;
 

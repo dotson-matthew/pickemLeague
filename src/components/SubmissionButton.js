@@ -6,10 +6,13 @@ import StyleSheet69 from './StyleReference';
 const styles = StyleSheet69();
 
 
-const SubmissionButton = ({selNum}) => {
+const SubmissionButton = ({navigation, selNum}) => {
+ 
   var title = '';
   var primeTime = false;
   var triplePlay = false;
+  var submitButton =false;
+  var style = styles.buttonLittle
   switch (selNum){
     case 0:{
       title = 'PYO #1'
@@ -46,20 +49,70 @@ const SubmissionButton = ({selNum}) => {
     case 7:{
       triplePlay = true;
       title = 'Triple Play'
+      break;
+    }
+    case 8:{
+      submitButton = true;
+      title = 'SUBMIT PICKS'
+      style = styles.buttonRectangle
     }
     
     
   }
-    return (
+    if (submitButton){
+      return (
         <View>
-            <TouchableOpacity>
-              <View style={styles.buttonLittle}>
+            <View>
+              <TouchableOpacity onPress={() => {
+                navigation.push('Confirm')}}>
+                <View style={style}>
+                  <Text style={styles.buttonText}>{title}</Text> 
+                </View>
+              </TouchableOpacity>
+            </View>
+            
+
+            
+        </View>
+        
+        
+    )
+    }
+    else if (triplePlay){
+      return (
+        <View>
+            <View>
+              <TouchableOpacity onPress={() => {
+                navigation.push('TriplePlay')}}>
+                <View style={style}>
+                  <Text style={styles.buttonText}>{title}</Text> 
+                </View>
+              </TouchableOpacity>
+            </View>
+            
+
+            
+        </View>
+        
+        
+    )
+    }
+    else{
+      return (
+        <View>
+          <View>
+            <TouchableOpacity onPress={() => navigation.push('Pick')}>
+              <View style={style}>
                 <Text style={styles.buttonText}>{title}</Text> 
               </View>
             </TouchableOpacity>
+          </View>
+          
         </View>
         
     )
+    }
+    
 }
 
 export default SubmissionButton;

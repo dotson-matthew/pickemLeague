@@ -18,6 +18,7 @@ function SubmissionScreen({ navigation, route }) {
   const [locked, setLocked] = React.useState([0,0,0,0,0,0,0,0,0]);
 
 
+
   
 
   return (
@@ -32,18 +33,36 @@ function SubmissionScreen({ navigation, route }) {
           1-5:
         </Text>
       </View>
-      <SubmissionButton selNum={0}/>
+      <SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={0}
+      />
 
-      <SubmissionButton selNum={1}/>
+      <SubmissionButton
+      
+      navigation = {navigation} 
+      selNum={1}
+      />
 
       
     </View>
     <View style = {styles.row}>
-      <SubmissionButton selNum={2}/>
+      <SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={2}/>
 
-      <SubmissionButton selNum={3}/>
+      <SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={3}
+      />
 
-      <SubmissionButton selNum={4}/>
+      <SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={4}/>
     </View>
 
     <View style = {styles.spacer}/>
@@ -57,9 +76,15 @@ function SubmissionScreen({ navigation, route }) {
           Time:
         </Text>
       </View>
-      <SubmissionButton selNum={5}/>
+      <SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={5}/>
 
-      <SubmissionButton selNum={6}/>
+      <SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={6}/>
     </View>
 
     <View style = {styles.spacer}/>
@@ -73,9 +98,23 @@ function SubmissionScreen({ navigation, route }) {
           Play:
         </Text>
       </View>
-      <SubmissionButton selNum={7}/>
+
+      <SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={7}/>
 
       
+    </View>
+    <View style = {styles.spacer}/>
+
+    <View style = {styles.spacer}/>
+    <View style = {styles.row}>  
+      <SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={8}/>
+
     </View>
     
     

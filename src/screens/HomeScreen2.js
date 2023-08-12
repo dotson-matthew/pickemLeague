@@ -7,101 +7,63 @@ import { COLORS } from '../../assets/COLORS';
 import NFL_Logo from '../../assets/NFL_Logo.jpg'
 import Glennon from '../../assets/Mike_Glennon.jpg';
 import SubmissionButton from '../components/SubmissionButton';
-import StyleSheet69 from '../components/StyleReference'
+import Time from '../components/DateInDallas';
+import StyleSheet69 from '../components/StyleReference';
 const styles = StyleSheet69();
 
 
 
-function HomeScreen2({navigation, route}) {
-  
+
+
+function HomeScreen({navigation, route}) {
+  const [timeNow, setTimeNow] = React.useState(Time());
+
+    React.useEffect(() => {
+      if (route.params?.post) {
+        route.params.post = route.params.post;
+      }
+    }, [route.params?.post]);
+    
     return (
-      <View style={styles.box}>
-  
-        <View style={styles.row}>
-  
-          <View style={styles.imageBox}>
-  
-            <Image style = {styles.nflLogo} source={NFL_Logo}/>
-  
-          </View>
+      <View style= {styles.home_container}>
+        <Text>HomeScreen</Text>
+        <Text>{JSON.stringify({timeNow})}</Text>
+        <Button
+          title="Go to Details"
+          onPress={() => navigation.navigate('Details', 
+          {
+            itemId:86, price:'$'+4.30
+          }
+          )}
+        />
+        <Button
+          title="Submission Screen"
+          onPress={() => {
             
-          <View style={styles.imageBox}>
-  
-            <Image source={Glennon} style={styles.profilePhoto} />
-  
-          </View>
-              
-        </View>
-  
-        <View >
-  
-          <View style ={styles.row2}>
-  
-            <TouchableOpacity>
-              <View style={styles.buttonMedium}>
-                <Text style={styles.buttonText}>Button</Text> 
-              </View>
-            </TouchableOpacity>
-  
-            <TouchableOpacity>
-              <View style={styles.buttonMedium}>
-                <Text style={styles.buttonText}>Button</Text> 
-              </View>
-            </TouchableOpacity>
-  
-          </View>
-  
-          <View style ={styles.row3}>
-  
-            <TouchableOpacity>
-              <View style={styles.buttonMedium}>
-                <Text style={styles.buttonText}>Button</Text> 
-              </View>
-            </TouchableOpacity>
-  
-            <TouchableOpacity>
-  
-              <View style={styles.buttonMedium}>
-  
-                <Text style={styles.buttonText}>Button</Text> 
-  
-              </View>
-  
-            </TouchableOpacity>
-  
-          </View>
-  
-  
-          <View style ={styles.row3}>
-  
-            <TouchableOpacity>
-  
-              <View style={styles.buttonRectangle}>
-  
-                <Text style={styles.buttonText}>Button</Text> 
-  
-              </View>
-  
-            </TouchableOpacity>
-  
-          </View>
-          <View style ={styles.row3}>
-  
-            <TouchableOpacity>
-  
-              <View style={styles.buttonRectangle}>
-  
-                <Text style={styles.buttonText}>Button</Text> 
-  
-              </View>
-  
-            </TouchableOpacity>
-  
-          </View>
-  
-        </View>
-        
+            navigation.push('Submission')
+          }}
+        />
+        <Button
+          title="Home Screen"
+          onPress={() => {
+            navigation.push('Home2')
+          }}
+        />
+        <Button
+          title="Change Title"
+          onPress={() => navigation.setOptions({title:'Updated!'})}
+        />
+        <Button
+          title="Create post"
+          onPress={() => navigation.push('CreatePost')}
+        />
+        <Button
+          title="Login"
+          onPress={() => navigation.push('Login')}
+        />
+        <Text style={{ margin: 10 }}>Post: {route.params?.post}</Text>
       </View>
     );
   }
-  export default HomeScreen2;
+
+  export default HomeScreen;
