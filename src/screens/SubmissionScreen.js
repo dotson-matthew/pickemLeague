@@ -108,8 +108,8 @@ function SubmissionScreen({ navigation, route }) {
     </View>
     <View style = {styles.spacer}/>
 
-    <View style = {styles.spacer}>
-      
+    <View style = {styles.spacer}/>
+    <View style = {styles.row}>  
       <SubmissionButton 
       
       navigation = {navigation} 
