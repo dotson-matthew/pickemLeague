@@ -154,6 +154,16 @@ const styles = StyleSheet.create({
     
 
   },
+  categoryBoxRectangle:{
+    height: buttonLSizerV,
+    width: buttonLSizerH*3.3,
+    justifyContent: 'space-evenly',
+    borderColor: 'black',
+    borderWidth: 3, 
+    borderRadius: 10
+    
+
+  },
   categoryBox:{
     height: buttonLSizerV,
     width: buttonLSizerH,

@@ -25,14 +25,14 @@ function SubmissionScreen({ navigation, route }) {
 
   <View style = {styles.box}>
     <View style = {styles.row}>
-      <View style = {styles.categoryBox}>
+      <View style = {styles.categoryBoxRectangle}>
         <Text style = {styles.boxText}>
-          PYO
+          PYO 1-6:
         </Text>
-        <Text style = {styles.boxText}>
-          1-5:
-        </Text>
+        
       </View>
+    </View>
+    <View style = {styles.row}>
       <SubmissionButton 
       
       navigation = {navigation} 
@@ -44,14 +44,15 @@ function SubmissionScreen({ navigation, route }) {
       navigation = {navigation} 
       selNum={1}
       />
-
-      
-    </View>
-    <View style = {styles.row}>
       <SubmissionButton 
       
       navigation = {navigation} 
       selNum={2}/>
+
+      
+    </View>
+    <View style = {styles.row}>
+      
 
       <SubmissionButton 
       
@@ -63,6 +64,11 @@ function SubmissionScreen({ navigation, route }) {
       
       navigation = {navigation} 
       selNum={4}/>
+
+      <SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={5}/>
     </View>
 
     <View style = {styles.spacer}/>
@@ -76,15 +82,17 @@ function SubmissionScreen({ navigation, route }) {
           Time:
         </Text>
       </View>
-      <SubmissionButton 
       
-      navigation = {navigation} 
-      selNum={5}/>
 
       <SubmissionButton 
       
       navigation = {navigation} 
       selNum={6}/>
+
+<SubmissionButton 
+      
+      navigation = {navigation} 
+      selNum={7}/>
     </View>
 
     <View style = {styles.spacer}/>
@@ -102,7 +110,7 @@ function SubmissionScreen({ navigation, route }) {
       <SubmissionButton 
       
       navigation = {navigation} 
-      selNum={7}/>
+      selNum={8}/>
 
       
     </View>
@@ -113,7 +121,7 @@ function SubmissionScreen({ navigation, route }) {
       <SubmissionButton 
       
       navigation = {navigation} 
-      selNum={8}/>
+      selNum={9}/>
 
     </View>
     

@@ -37,21 +37,27 @@ const SubmissionButton = ({navigation, selNum}) => {
     }
     case 5:{
       primeTime = true;
+      title = 'PYO #6'
+      break;
+
+    }  
+    case 6:{
+      primeTime = true;
       title = 'SNF'
       break;
 
     }    
-    case 6:{
+    case 7:{
       primeTime = true;
       title = 'MNF'
       break;
     }
-    case 7:{
+    case 8:{
       triplePlay = true;
       title = 'Triple Play'
       break;
     }
-    case 8:{
+    case 9:{
       submitButton = true;
       title = 'SUBMIT PICKS'
       style = styles.buttonRectangle
