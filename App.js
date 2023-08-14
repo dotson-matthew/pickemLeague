@@ -17,6 +17,7 @@ import LoginScreen from './src/screens/LoginScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen'
 import PickScreen from './src/screens/PickScreen';
 import StandingsScreen from './src/screens/StandingsScreen';
+import LogoTitle from './src/components/LogoTitle';
 import StyleSheet69 from './src/components/StyleReference';
 const styles = StyleSheet69();
 
@@ -32,7 +33,20 @@ const WeekNumber= 6;
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator 
+      initialRouteName="Login" 
+      screenOptions ={
+        {
+          headerStyle:{
+            backgroundColor: '#f4511e'
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight:'bold',
+          }
+        }
+      }
+      >
           <Stack.Screen 
             name = "Home2" 
             component={HomeScreen2} 
@@ -61,7 +75,12 @@ function App() {
           <Stack.Screen
             name= "Home"
             component= {HomeScreen}
-            options={{title: 'HomeScreenBuild'}}
+            options={
+            {
+              headerTitle: (props) => <LogoTitle {...props}   />,
+              title: "Home"
+            }
+          }
             
           />
           <Stack.Screen
