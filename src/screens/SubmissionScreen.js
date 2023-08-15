@@ -53,40 +53,80 @@ function SubmissionScreen({ navigation, route }) {
         break;
       }
       case 1: {
-        title = "PYO #2";
+        if (title2 == ""){
+          title = "PYO #2";
+        }
+        else {
+          title = title2
+        }
         break;
       }
       case 2: {
-        title = "PYO #3";
+        if (title2 == ""){
+          title = "PYO #3";
+        }
+        else {
+          title = title2
+        }
         break;
       }
       case 3: {
-        title = "PYO #4";
+        if (title2 == ""){
+          title = "PYO #4";
+        }
+        else {
+          title = title2
+        }
 
         break;
       }
       case 4: {
-        title = "PYO #5";
+        if (title2 == ""){
+          title = "PYO #5";
+        }
+        else {
+          title = title2
+        }
         break;
       }
       case 5: {
-        primeTime = true;
-        title = "PYO #6";
+        
+        if (title2 == ""){
+          title = "PYO #6";
+        }
+        else {
+          title = title2
+        }
         break;
       }
       case 6: {
         primeTime = true;
-        title = "SNF";
+        if (title2 == ""){
+          title = "SNF";
+        }
+        else {
+          title = title2
+        }
         break;
       }
       case 7: {
         primeTime = true;
-        title = "MNF";
+        if (title2 == ""){
+          title = "MNF";
+        }
+        else {
+          title = title2
+        }
         break;
       }
       case 8: {
         triplePlay = true;
-        title = "Triple Play";
+        if (title2 == ""){
+          title = "Triple Play";
+        }
+        else {
+          title = title2
+        }
         break;
       }
       case 9: {
@@ -314,14 +354,14 @@ function SubmissionScreen({ navigation, route }) {
         />
 
         <SubmissionButton navigation={navigation} selNum={1} title2 = {selectionSet[1]}/>
-        <SubmissionButton navigation={navigation} selNum={2} />
+        <SubmissionButton navigation={navigation} selNum={2} title2 = {selectionSet[2]}/>
       </View>
       <View style={styles.row}>
-        <SubmissionButton navigation={navigation} selNum={3} />
+        <SubmissionButton navigation={navigation} selNum={3} title2 = {selectionSet[3]}/>
 
-        <SubmissionButton navigation={navigation} selNum={4} />
+        <SubmissionButton navigation={navigation} selNum={4} title2 = {selectionSet[4]}/>
 
-        <SubmissionButton navigation={navigation} selNum={5} />
+        <SubmissionButton navigation={navigation} selNum={5} title2 = {selectionSet[5]}/>
       </View>
 
       <View style={styles.spacer} />
@@ -332,9 +372,9 @@ function SubmissionScreen({ navigation, route }) {
           <Text style={styles.boxText}>Time:</Text>
         </View>
 
-        <SubmissionButton navigation={navigation} selNum={6} />
+        <SubmissionButton navigation={navigation} selNum={6} title2 = {selectionSet[6]}/>
 
-        <SubmissionButton navigation={navigation} selNum={7} />
+        <SubmissionButton navigation={navigation} selNum={7} title2 = {selectionSet[7]}/>
       </View>
 
       <View style={styles.spacer} />
@@ -345,7 +385,7 @@ function SubmissionScreen({ navigation, route }) {
           <Text style={styles.boxText}>Play:</Text>
         </View>
 
-        <SubmissionButton navigation={navigation} selNum={8} />
+        <SubmissionButton navigation={navigation} selNum={8} title2 = {selectionSet[8]}/>
       </View>
       <View style={styles.spacer} />
 
