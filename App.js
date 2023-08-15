@@ -6,16 +6,15 @@ import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions
 import { COLORS } from './assets/COLORS';
 import NFL_Logo from './assets/NFL_Logo.jpg';
 import Glennon from './assets/Mike_Glennon.jpg';
-import SubmissionButton from './src/components/SubmissionButton';
 import SubmissionScreen from './src/screens/SubmissionScreen';
-import TriplePlayScreen from './src/screens/TriplePlayScreen';
+
 import CreatePostScreen from './src/screens/CreatePostScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import HomeScreen2 from './src/screens/HomeScreen2';
 import DetailsScreen from './src/screens/DetailsScreen';
 import LoginScreen from './src/screens/LoginScreen';
 import ConfirmationScreen from './src/screens/ConfirmationScreen'
-import PickScreen from './src/screens/PickScreen';
+
 import StandingsScreen from './src/screens/StandingsScreen';
 import LogoTitle from './src/components/LogoTitle';
 import StyleSheet69 from './src/components/StyleReference';
@@ -67,11 +66,7 @@ function App() {
             component= {SubmissionScreen}
             options={{title: 'Submission for Week ' + WeekNumber}}
           />
-          <Stack.Screen
-            name= "TriplePlay"
-            component= {TriplePlayScreen}
-            options={{title: 'Triple Play for Week ' + WeekNumber}}
-          />
+          
           <Stack.Screen
             name= "Home"
             component= {HomeScreen}
@@ -93,11 +88,7 @@ function App() {
             component={ConfirmationScreen}
             options={{title: 'Confirm Pick Set'}}
           />
-          <Stack.Screen
-            name="Pick"
-            component={PickScreen}
-            options={{title: 'Make a Selection'}}
-          />
+          
           <Stack.Screen
             name="Standings"
             component={StandingsScreen}
