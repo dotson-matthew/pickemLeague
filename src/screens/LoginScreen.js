@@ -6,7 +6,6 @@ import { Button, StyleSheet, Text, View, TextInput, TouchableOpacity, Dimensions
 import { COLORS } from '../../assets/COLORS';
 import NFL_Logo from '../../assets/NFL_Logo.jpg'
 import Glennon from '../../assets/Mike_Glennon.jpg';
-import SubmissionButton from '../components/SubmissionButton';
 import StyleSheet69 from '../components/StyleReference';
 
 const styles = StyleSheet69();
