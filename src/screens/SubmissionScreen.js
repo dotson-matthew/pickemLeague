@@ -167,7 +167,19 @@ function SubmissionScreen({ navigation, route }) {
                   <View style={styles.modalView}>
                     <TouchableOpacity onPress={() => {
                       // here is where we connect the backend connection
-
+                      const submitPicks = async () => {
+                        try {
+                          const response = await fetch('https://nflpickemapi.azurewebsites.net/insertendpointhere', {
+                            method: 'POST',
+                            headers: {
+                              'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                          });
+                        } catch (error) {
+                          console.error('Error: ', error);
+                        }
+                      }
 
                       setModalVisible(!modalVisible)
                     }}>
