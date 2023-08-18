@@ -53,6 +53,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     
   },
+  rowS: {
+    flexDirection: 'row',
+    borderBottomWidth: 3 ,
+    borderBottomColor:'black',  
+    justifyContent: 'space-evenly',
+    
+  
+  },
   home_container: {
     flex: 1,
     backgroundColor: '#ffa',
@@ -184,6 +192,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     
     
+    
 
   },
   categoryBox2:{
@@ -193,7 +202,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 3, 
     borderRadius: 10,
-    
+    marginVertical: rowSpacerV
     
 
   },
@@ -204,6 +213,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 3, 
     borderRadius: 10,
+    marginVertical: rowSpacerV
     
     
 
