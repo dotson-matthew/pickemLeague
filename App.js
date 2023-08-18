@@ -26,14 +26,14 @@ const styles = StyleSheet69();
 
 /** Stack Navigation Creation */
 const Stack = createNativeStackNavigator();
-const WeekNumber= 6;
+const WeekNumber= 2;
 
 
 function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator 
-      initialRouteName="Home" 
+      initialRouteName="Home2" 
       screenOptions ={
         {
           headerStyle:{

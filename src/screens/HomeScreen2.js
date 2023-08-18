@@ -14,7 +14,7 @@ const styles = StyleSheet69();
 
 
 
-function HomeScreen({navigation, route}) {
+function HomeScreen2({navigation, route}) {
   const [timeNow, setTimeNow] = React.useState(Time());
 
     React.useEffect(() => {
@@ -45,7 +45,7 @@ function HomeScreen({navigation, route}) {
         <Button
           title="Home Screen"
           onPress={() => {
-            navigation.push('Home2')
+            navigation.push('Home', {username:"MaDotson"})
           }}
         />
         <Button
@@ -65,4 +65,4 @@ function HomeScreen({navigation, route}) {
     );
   }
 
-  export default HomeScreen;
+  export default HomeScreen2;
