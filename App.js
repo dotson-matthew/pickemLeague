@@ -33,7 +33,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator 
-      initialRouteName="Login" 
+      initialRouteName="Home" 
       screenOptions ={
         {
           headerStyle:{
@@ -88,6 +88,7 @@ function App() {
             component={ConfirmationScreen}
             options={{title: 'Confirm Pick Set'}}
           />
+          
           
           <Stack.Screen
             name="Standings"
