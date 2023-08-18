@@ -235,86 +235,86 @@
               "triplePlay": "false"
             },
             "PYO2": {
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
+            },
+            "PYO3": {
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
+            },
+            "PYO4": {
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
+            },
+            "PYO5": {
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
+            },
+            "PYO6": {
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
+            },
+            "SNF": {
               "team": "NYJ",
               "opponent": "GB",
               "spreadT": "-1.0",
               "result": "W",
               "triplePlay": "false"
             },
-            "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
-            },
-            "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
-            },
-            "PYO5": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
-            },
-            "PYO6": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
-            },
-            "SNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
-            },
             "MNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 6
             },
             "losses": {
-              "amount": 0
+              "amount": 4
             }
           },
           "week2": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO4": {
               "team": "",
@@ -352,14 +352,14 @@
               "triplePlay": ""
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO2",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 4
             },
             "losses": {
-              "amount": 0
+              "amount": 1
             }
           },
           "week3": {
@@ -1401,93 +1401,93 @@
         "selectionCatalog": {
           "week1": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO5": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO6": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "SNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "MNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 6
             },
             "losses": {
-              "amount": 0
+              "amount": 4
             }
           },
           "week2": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
               "team": "",
@@ -1525,14 +1525,14 @@
               "triplePlay": ""
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 3
             },
             "losses": {
-              "amount": 0
+              "amount": 2
             }
           },
           "week3": {
@@ -2574,93 +2574,93 @@
         "selectionCatalog": {
           "week1": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO5": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO6": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "SNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "MNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 6
             },
             "losses": {
-              "amount": 0
+              "amount": 4
             }
           },
           "week2": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
               "team": "",
@@ -2698,14 +2698,14 @@
               "triplePlay": ""
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 3
             },
             "losses": {
-              "amount": 0
+              "amount": 2
             }
           },
           "week3": {
@@ -3747,93 +3747,93 @@
         "selectionCatalog": {
           "week1": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO5": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO6": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "SNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "MNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 6
             },
             "losses": {
-              "amount": 0
+              "amount": 4
             }
           },
           "week2": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
               "team": "",
@@ -3871,14 +3871,14 @@
               "triplePlay": ""
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 3
             },
             "losses": {
-              "amount": 0
+              "amount": 2
             }
           },
           "week3": {
@@ -4915,98 +4915,98 @@
       "Player": {
         "firstName": "Evan",
         "lastName": "Adrian",
-        "wins": 9,
-        "losses": 6,
+        "wins": 8,
+        "losses": 7,
         "selectionCatalog": {
           "week1": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO5": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO6": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "SNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "MNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 5
             },
             "losses": {
-              "amount": 0
+              "amount": 5
             }
           },
           "week2": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
               "team": "",
@@ -5044,14 +5044,14 @@
               "triplePlay": ""
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 3
             },
             "losses": {
-              "amount": 0
+              "amount": 2
             }
           },
           "week3": {
@@ -5113,13 +5113,13 @@
             },
             "triplePlay": {
               "PickId": "",
-              "Winner?": "false"
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 3
             },
             "losses": {
-              "amount": 0
+              "amount": 2
             }
           },
           "week4": {
@@ -6089,104 +6089,104 @@
         "firstName": "Joey",
         "lastName": "Arriaga",
         "wins": 9,
-        "losses": 6,
+        "losses": 7,
         "selectionCatalog": {
           "week1": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO5": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO6": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "SNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "MNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 5
             },
             "losses": {
-              "amount": 0
+              "amount": 5
             }
           },
           "week2": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "DAL",
+              "opponent": "NYG",
+              "spread": "-5.5",
+              "result": "W",
+              "triplePlay": "true"
             },
             "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO5": {
               "team": "",
@@ -6217,14 +6217,14 @@
               "triplePlay": ""
             },
             "triplePlay": {
-              "PickId": "",
-              "Winner?": "false"
+              "PickId": "PYO3",
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 4
             },
             "losses": {
-              "amount": 0
+              "amount": 2
             }
           },
           "week3": {
@@ -6286,13 +6286,13 @@
             },
             "triplePlay": {
               "PickId": "",
-              "Winner?": "false"
+              "Winner?": "true"
             },
             "wins": {
-              "amount": 0
+              "amount": 3
             },
             "losses": {
-              "amount": 0
+              "amount": 2
             }
           },
           "week4": {
@@ -7261,84 +7261,84 @@
       "Player": {
         "firstName": "Greg",
         "lastName": "Harisis",
-        "wins": 9,
-        "losses": 6,
+        "wins": 1,
+        "losses": 12,
         "selectionCatalog": {
           "week1": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "NYJ",
+              "opponent": "GB",
+              "spreadT": "-1.0",
+              "result": "W",
+              "triplePlay": "false"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "true"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO5": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO6": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "SNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "MNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "triplePlay": {
-              "PickId": "",
+              "PickId": "PYO2",
               "Winner?": "false"
             },
             "wins": {
-              "amount": 0
+              "amount": 1
             },
             "losses": {
-              "amount": 0
+              "amount": 9
             }
           },
           "week2": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO2": {
               "team": "",
@@ -7348,18 +7348,18 @@
               "triplePlay": ""
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO5": {
               "team": "",
@@ -7397,7 +7397,7 @@
               "amount": 0
             },
             "losses": {
-              "amount": 0
+              "amount": 3
             }
           },
           "week3": {
@@ -8434,91 +8434,91 @@
       "Player": {
         "firstName": "Columbus",
         "lastName": "Nash",
-        "wins": 9,
-        "losses": 6,
+        "wins": 0,
+        "losses": 14,
         "selectionCatalog": {
           "week1": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "true"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO4": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO5": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO6": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "SNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "MNF": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "triplePlay": {
-              "PickId": "",
+              "PickId": "PYO1",
               "Winner?": "false"
             },
             "wins": {
               "amount": 0
             },
             "losses": {
-              "amount": 0
+              "amount": 10
             }
           },
           "week2": {
             "PYO1": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "true"
             },
             "PYO2": {
-              "team": "",
-              "opponent": "",
-              "spread": "",
-              "result": "",
-              "triplePlay": ""
+              "team": "PIT",
+              "opponent": "BUF",
+              "spreadT": "-2.0",
+              "result": "L",
+              "triplePlay": "false"
             },
             "PYO3": {
               "team": "",
@@ -8563,14 +8563,14 @@
               "triplePlay": ""
             },
             "triplePlay": {
-              "PickId": "",
+              "PickId": "PYO1",
               "Winner?": "false"
             },
             "wins": {
               "amount": 0
             },
             "losses": {
-              "amount": 0
+              "amount": 4
             }
           },
           "week3": {
