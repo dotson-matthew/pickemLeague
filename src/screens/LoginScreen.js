@@ -24,14 +24,6 @@ function LoginScreen({ navigation, route }) {
       }
   
       try {
-        // const response = await fetch('https://nflpickemapi.azurewebsites.net/Validate', {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   },
-        //   body: JSON.stringify(credentials)
-        // });
-
         const response = axios.post('https://nflpickemapi.azurewebsites.net/Validate', credentials, {
           'Content-Type': 'application/json'
         });
@@ -42,7 +34,7 @@ function LoginScreen({ navigation, route }) {
         
   
         if ((await response).status == 200) {
-            navigation.dispatch(StackActions.replace('Home',{params: {}}));
+            navigation.dispatch(StackActions.replace('Home',{params: {username}}));
         } else {
             console.log('Login failed');
         }

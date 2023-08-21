@@ -17,6 +17,7 @@ import { SelectList } from "react-native-dropdown-select-list";
 
 import StyleSheet69 from "../components/StyleReference";
 import ConfirmationScreen from "./ConfirmationScreen";
+import axios from "axios";
 const styles = StyleSheet69();
 
 function SubmissionScreen({ navigation, route }) {
@@ -137,15 +138,20 @@ function SubmissionScreen({ navigation, route }) {
     }
     const [modalVisible, setModalVisible] = React.useState(false);
     const [selected, setSelected] = React.useState("");
-    const data = [
-      { key: "1", value: "Mobiles", disabled: true },
-      { key: "2", value: "Appliances" },
-      { key: "3", value: "Cameras" },
-      { key: "4", value: "Computers", disabled: true },
-      { key: "5", value: "Vegetables" },
-      { key: "6", value: "Diary Products" },
-      { key: "7", value: "Drinks" },
-    ];
+
+    // Object structure of game received from API
+    // game {
+    //   gameId (string),
+    //   Week (int),
+    //   Home (string),
+    //   Away (string),
+    //   Kickoff (string),
+    //   Deadline (string)
+    // }
+    const data = axios.get('https://nflpickemapi.azurewebsites.net/GetUIGameModels')
+    .then(res => console.log(res));
+    
+
     if (submitButton) {
       return (
         <View>
@@ -174,7 +180,7 @@ function SubmissionScreen({ navigation, route }) {
                             headers: {
                               'Content-Type': 'application/json'
                             },
-                            body: JSON.stringify(data)
+                            body: JSON.stringify(selectionSet)
                           });
                         } catch (error) {
                           console.error('Error: ', error);
