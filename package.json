@@ -10,7 +10,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
-  "homepage": "http://dotson-matthew.github.io//expo-gh-pages",
+  "homepage": "http://dotson-matthew.github.io",
   "dependencies": {
     "@expo/webpack-config": "^18.1.2",
     "@react-navigation/native": "^6.1.7",
