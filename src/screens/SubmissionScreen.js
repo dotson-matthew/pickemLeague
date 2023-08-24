@@ -17,6 +17,7 @@ import { SelectList } from "react-native-dropdown-select-list";
 
 import StyleSheet69 from "../components/StyleReference";
 import ConfirmationScreen from "./ConfirmationScreen";
+import axios from "axios";
 const styles = StyleSheet69();
 
 function SubmissionScreen({ navigation, route }) {
@@ -137,15 +138,34 @@ function SubmissionScreen({ navigation, route }) {
     }
     const [modalVisible, setModalVisible] = React.useState(false);
     const [selected, setSelected] = React.useState("");
-    const data = [
-      { key: "1", value: "Mobiles", disabled: true },
-      { key: "2", value: "Appliances" },
-      { key: "3", value: "Cameras" },
-      { key: "4", value: "Computers", disabled: true },
-      { key: "5", value: "Vegetables" },
-      { key: "6", value: "Diary Products" },
-      { key: "7", value: "Drinks" },
-    ];
+    const [gameData, setGameData] = React.useState([]);
+
+    // Object structure of game received from API
+    // game {
+    //   gameId (string),
+    //   Week (int),
+    //   Home (string),
+    //   Away (string),
+    //   Kickoff (string),
+    //   Deadline (string),
+    // }
+    // 
+    React.useEffect(() => {
+      const data = async () => {
+        try {
+          const res = await axios.get('https://nflpickemapi.azurewebsites.net/GetUIGameModels');
+          setGameData(res.data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      data();
+    }, []);
+
+    console.log(gameData);
+    
+
     if (submitButton) {
       return (
         <View>
@@ -167,7 +187,7 @@ function SubmissionScreen({ navigation, route }) {
                   <View style={styles.modalView}>
                     <TouchableOpacity onPress={() => {
                       // here is where we connect the backend connection
-
+                      
 
                       setModalVisible(!modalVisible)
                     }}>
@@ -283,7 +303,7 @@ function SubmissionScreen({ navigation, route }) {
 
                 <SelectList
                   setSelected={(val) => setSelected(val)}
-                  data={data}
+                  data={gameData}
                   save="value"
                   boxStyles={styles.categoryBox2}
                   defaultOption={selected}

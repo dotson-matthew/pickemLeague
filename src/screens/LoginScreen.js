@@ -7,6 +7,7 @@ import { COLORS } from '../../assets/COLORS';
 import NFL_Logo from '../../assets/NFL_Logo.jpg'
 import Glennon from '../../assets/Mike_Glennon.jpg';
 import StyleSheet69 from '../components/StyleReference';
+import axios from 'axios';
 
 const styles = StyleSheet69();
 
@@ -23,20 +24,19 @@ function LoginScreen({ navigation, route }) {
       }
   
       try {
-        const response = await fetch('https://nflpickemapi.azurewebsites.net/Validate', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(credentials)
+        const response = axios.post('https://nflpickemapi.azurewebsites.net/Validate', credentials, {
+          'Content-Type': 'application/json'
         });
+
+        console.log((await response).headers);
+        console.log((await response).data);
+        console.log((await response).status);
+        
   
-        if (response.status == 200) {
-            navigation.dispatch(StackActions.replace('Home',{params: {}}));
+        if ((await response).status == 200) {
+            navigation.dispatch(StackActions.replace('Home',{params: {username}}));
         } else {
             console.log('Login failed');
-            console.log(response.status);
         }
   
       } catch (error) {
