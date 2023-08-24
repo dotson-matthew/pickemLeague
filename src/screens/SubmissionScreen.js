@@ -149,7 +149,7 @@ function SubmissionScreen({ navigation, route }) {
     //   Kickoff (string),
     //   Deadline (string)
     // }
-    useEffect(() => {
+    React.useEffect(() => {
       const data = async () => {
         try {
           const res = await axios.get('https://nflpickemapi.azurewebsites.net/GetUIGameModels');
@@ -159,8 +159,10 @@ function SubmissionScreen({ navigation, route }) {
         }
       }
 
-      gameData();
+      data();
     }, []);
+
+    console.log(gameData);
     
 
     if (submitButton) {
