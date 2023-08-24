@@ -224,16 +224,16 @@ function SubmissionScreen({ navigation, route }) {
                   boxStyles={styles.categoryBox2}
                   defaultOption={selected}
                   onSelect = {()=>{
-                    let i=0;
+                    
                     var a = []
-                    for (x of selectionSet){
+                    for (var i =0; i<selectionSet.length;i++){
                       if (i== selNum){
                        a.push(selected)
                       }
                       else{
-                        a.push(x)
+                        a.push(selectionSet[i])
                       }
-                      i++;
+                      
                     }
                     console.log(a);
                     setSelectionSet(a);
@@ -288,16 +288,16 @@ function SubmissionScreen({ navigation, route }) {
                   boxStyles={styles.categoryBox2}
                   defaultOption={selected}
                   onSelect = {()=>{
-                    let i=0;
+                    
                     var a = []
-                    for (x of selectionSet){
+                    for (var i =0; i<selectionSet.length;i++){
                       if (i== selNum){
                        a.push(selected)
                       }
                       else{
-                        a.push(x)
+                        a.push(selectionSet[i])
                       }
-                      i++;
+                      
                     }
                     console.log(a);
                     setSelectionSet(a);
