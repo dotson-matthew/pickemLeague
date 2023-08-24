@@ -65,7 +65,7 @@ function App() {
             name= "Submission"
             component= {SubmissionScreen}
             options={{title: 'Submission for Week ' + WeekNumber}}
-          />
+          /> 
           
           <Stack.Screen
             name= "Home"
