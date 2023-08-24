@@ -149,6 +149,7 @@ function SubmissionScreen({ navigation, route }) {
     //   Kickoff (string),
     //   Deadline (string)
     // }
+    // 
     React.useEffect(() => {
       const data = async () => {
         try {
