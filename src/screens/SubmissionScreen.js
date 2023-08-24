@@ -138,6 +138,7 @@ function SubmissionScreen({ navigation, route }) {
     }
     const [modalVisible, setModalVisible] = React.useState(false);
     const [selected, setSelected] = React.useState("");
+    const [gameData, setGameData] = React.useState([]);
 
     // Object structure of game received from API
     // game {
@@ -148,8 +149,18 @@ function SubmissionScreen({ navigation, route }) {
     //   Kickoff (string),
     //   Deadline (string)
     // }
-    const data = axios.get('https://nflpickemapi.azurewebsites.net/GetUIGameModels')
-    .then(res => console.log(res));
+    useEffect(() => {
+      const data = async () => {
+        try {
+          const res = await axios.get('https://nflpickemapi.azurewebsites.net/GetUIGameModels');
+          setGameData(res.data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      gameData();
+    }, []);
     
 
     if (submitButton) {
@@ -301,7 +312,7 @@ function SubmissionScreen({ navigation, route }) {
 
                 <SelectList
                   setSelected={(val) => setSelected(val)}
-                  data={data}
+                  data={gameData}
                   save="value"
                   boxStyles={styles.categoryBox2}
                   defaultOption={selected}
