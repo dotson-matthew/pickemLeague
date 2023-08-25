@@ -69,14 +69,14 @@ function SubmissionScreen({ navigation, route }) {
   const [locked, setLocked] = React.useState([]);
   const [gameData, setGameData] = React.useState([]);
   const [gamesList, setGamesList] = React.useState([]);
-  const [gamesList2,setGamesList2] =React.useState([]);
+  const [gamesList2, setGamesList2] = React.useState([]);
 
   React.useEffect(() => {
-    const data = async () => {
+    const data = async function (){
       try {
         const res = await axios.get(
           "https://nflpickemapi.azurewebsites.net/GetUIGameModels"
-        );
+        ); 
         setGameData(res.data);
       } catch (error) {
         console.error(error);
@@ -84,14 +84,19 @@ function SubmissionScreen({ navigation, route }) {
     };
 
     data();
-    console.log("\na\na\nh");
-    console.log(gameData);
-    console.log("\nb\nb\nb");
-    updateGamesList(gameData)
-
+    
   }, []);
-  console.log(gamesList)
-  console.log("\nb\nb\nb");
+  
+  console.log(gameData);
+  if (gamesList.length <1){
+    updateGamesList(gameData);
+  }
+  if (gamesList2.length <1){
+    updateGamesList2(gamesList);
+  }
+ 
+  console.log(gamesList);
+  console.log(gamesList2)
 
   const SubmissionButton = ({
     navigation,
@@ -192,15 +197,7 @@ function SubmissionScreen({ navigation, route }) {
     const [modalVisible, setModalVisible] = React.useState(false);
     const [selected, setSelected] = React.useState("");
 
-    const data = [
-      { key: "1", value: "Mobiles", disabled: true },
-      { key: "2", value: "Appliances" },
-      { key: "3", value: "Cameras" },
-      { key: "4", value: "Computers", disabled: true },
-      { key: "5", value: "Vegetables" },
-      { key: "6", value: "Diary Products" },
-      { key: "7", value: "Drinks" },
-    ];
+    const data = gamesList2;
     // Object structure of game received from API
     // game {
     //   gameId (string),
@@ -342,6 +339,7 @@ function SubmissionScreen({ navigation, route }) {
                   boxStyles={styles.categoryBox2}
                   defaultOption={selectionSet[selNum]}
                   onSelect={() => {
+                    
                     adjustSelectionSet(true, selNum, selected);
                   }}
                 />
@@ -369,7 +367,7 @@ function SubmissionScreen({ navigation, route }) {
           </View>
         </View>
       );
-    }
+    } 
   };
   return (
     <View style={styles.box}>
@@ -470,12 +468,11 @@ function SubmissionScreen({ navigation, route }) {
       </View>
     </View>
   );
-  function updateGamesList(gameData) {
+  async function updateGamesList(gameData) {
     var currentTime;
     if (gameData.length > 0) {
       currentTime = gameData[0].currentTime;
-    }
-    else return;
+    } else return;
     var gamesListTemp = [];
     var dotw;
     var k;
@@ -507,18 +504,18 @@ function SubmissionScreen({ navigation, route }) {
         " " +
         hSym +
         gameData[i].homeSpread +
-        " v. " +
-        gameData[i].home;
+        " vs " +
+        gameData[i].away;
       aString =
-        gameData[i].home +
+        gameData[i].away +
         " " +
         aSym +
         gameData[i].awaySpread +
         " @ " +
         gameData[i].home;
       gamesListTemp.push({
-        key: gameData[i].gameId,
-        value: {
+        id: gameData[i].gameId,
+        data: {
           team: gameData[i].away,
           oppo: gameData[i].home,
           spread: gameData[i].awaySpread,
@@ -526,8 +523,8 @@ function SubmissionScreen({ navigation, route }) {
         },
       });
       gamesListTemp.push({
-        key: gameData[i].gameId,
-        value: {
+        id: gameData[i].gameId,
+        data: {
           team: gameData[i].home,
           oppo: gameData[i].away,
           spread: gameData[i].homeSpread,
@@ -535,9 +532,26 @@ function SubmissionScreen({ navigation, route }) {
         },
       });
     }
-    console.log(gamesListTemp);
+    
     setGamesList(gamesListTemp);
   }
+  async function updateGamesList2(gamesList) {
+    var currentTime;
+    if (gamesList.length < 1) {
+       return;
+      }
+    var gamesListTemp = [];
+    for (var i = 0; i < gamesList.length; i++) {
+      gamesListTemp.push({
+        key: gamesList[i].id,
+        value:  gamesList[i].data.string
+        },
+      );
+    }
+    
+    setGamesList2(gamesListTemp);
+  }
+  
 }
 
 export default SubmissionScreen;
