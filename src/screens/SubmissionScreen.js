@@ -12,7 +12,6 @@ import {
   Modal,
 } from "react-native";
 
-
 import { SelectList } from "react-native-dropdown-select-list";
 
 import StyleSheet69 from "../components/StyleReference";
@@ -69,26 +68,38 @@ function SubmissionScreen({ navigation, route }) {
   }
   const [locked, setLocked] = React.useState([]);
   const [gameData, setGameData] = React.useState([]);
-  const [gamesList,setGamesList] = React.useState([]);
-  
+  const [gamesList, setGamesList] = React.useState([]);
+  const [gamesList2,setGamesList2] =React.useState([]);
+
   React.useEffect(() => {
     const data = async () => {
       try {
-        const res = await axios.get('https://nflpickemapi.azurewebsites.net/GetUIGameModels');
+        const res = await axios.get(
+          "https://nflpickemapi.azurewebsites.net/GetUIGameModels"
+        );
         setGameData(res.data);
       } catch (error) {
         console.error(error);
       }
-    }
+    };
 
     data();
+    console.log("\na\na\nh");
+    console.log(gameData);
+    console.log("\nb\nb\nb");
+    updateGamesList(gameData)
+
   }, []);
-  console.log("\na\na\na");
-  console.log(gameData);
+  console.log(gamesList)
   console.log("\nb\nb\nb");
-  
-  
-  const SubmissionButton = ({ navigation, selNum, title2,games,gamesAlreadySelected }) => {
+
+  const SubmissionButton = ({
+    navigation,
+    selNum,
+    title2,
+    games,
+    gamesAlreadySelected,
+  }) => {
     var title = "";
     var primeTime = false;
     var triplePlay = false;
@@ -459,6 +470,74 @@ function SubmissionScreen({ navigation, route }) {
       </View>
     </View>
   );
+  function updateGamesList(gameData) {
+    var currentTime;
+    if (gameData.length > 0) {
+      currentTime = gameData[0].currentTime;
+    }
+    else return;
+    var gamesListTemp = [];
+    var dotw;
+    var k;
+    var d;
+    var aString;
+    var hString;
+    var hSym;
+    var aSym;
+    for (var i = 0; i < gameData.length; i++) {
+      //var date = new Date(JSON.stringify(gameTemp[i].data.kickoff));
+      //dotw = date.getDay(k);
+      //console.log(dotw)
+      //fix later
+
+      k = gameData[i].kickoff;
+      d = gameData[i].deadline;
+      if (gameData[i].homeSpread !== 0) {
+        if (gameData[i].homeSpread > 0) {
+          hSym = "+";
+          aSym = "";
+        } else {
+          hSym = "";
+          aSym = "+";
+        }
+      } else aSym = hSym = "+";
+
+      hString =
+        gameData[i].home +
+        " " +
+        hSym +
+        gameData[i].homeSpread +
+        " v. " +
+        gameData[i].home;
+      aString =
+        gameData[i].home +
+        " " +
+        aSym +
+        gameData[i].awaySpread +
+        " @ " +
+        gameData[i].home;
+      gamesListTemp.push({
+        key: gameData[i].gameId,
+        value: {
+          team: gameData[i].away,
+          oppo: gameData[i].home,
+          spread: gameData[i].awaySpread,
+          string: aString,
+        },
+      });
+      gamesListTemp.push({
+        key: gameData[i].gameId,
+        value: {
+          team: gameData[i].home,
+          oppo: gameData[i].away,
+          spread: gameData[i].homeSpread,
+          string: hString,
+        },
+      });
+    }
+    console.log(gamesListTemp);
+    setGamesList(gamesListTemp);
+  }
 }
 
 export default SubmissionScreen;
