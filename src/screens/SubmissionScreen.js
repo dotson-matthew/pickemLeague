@@ -20,6 +20,13 @@ import axios from "axios";
 const styles = StyleSheet69();
 
 function SubmissionScreen({ navigation, route }) {
+  return (
+    <SubmissionScreenContainer
+      navigation={navigation}
+    ></SubmissionScreenContainer>
+  );
+}
+const SubmissionScreenContainer = ({ navigation }) => {
   const [selectionSet, setSelectionSet] = React.useState([
     "",
     "",
@@ -66,37 +73,102 @@ function SubmissionScreen({ navigation, route }) {
       }
     }
   }
+  function hasDeadlinePassed(){
+    const now = new Date();
+    const deadline = new Date();
+    deadline.setUTCDate(26);
+    deadline.setUTCHours(21);
+    deadline.setUTCMinutes(24);
+    deadline.setUTCSeconds(59);
+
+
+    const currentTime = now.toISOString();
+    const deadlineTime = deadline.toISOString();
+    console.log(currentTime)
+    console.log(deadlineTime)
+    var earliestGame;
+    for (var i=0; i<gameData.length;i++){
+      if (i==0){
+        earliestGame = gameData[i].deadline
+        continue
+      }
+      if (earliestGame > gameData[i].deadline){
+        earliestGame = gameData[i].deadline
+      }
+      console.log(earliestGame)
+    }
+    for (var i=0; i<gameData.length;i++){
+      if (currentTime>deadlineTime){
+        console.log("Deadline Passed");
+        return (
+          <View>
+            <Text>A game has passed it's deadline. 
+              Exit this page and open the submission page again to start over.</Text>
+            
+          </View>
+        );
+      }
+    }
+  }
+  
   const [locked, setLocked] = React.useState([]);
   const [gameData, setGameData] = React.useState([]);
   const [gamesList, setGamesList] = React.useState([]);
   const [gamesList2, setGamesList2] = React.useState([]);
-
-  React.useEffect(() => {
-    const data = async function (){
-      try {
-        const res = await axios.get(
-          "https://nflpickemapi.azurewebsites.net/GetUIGameModels"
-        ); 
-        setGameData(res.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    data();
-    
-  }, []);
+  const [isLoading, setIsLoading] = React.useState([]);
   
-  console.log(gameData);
-  if (gamesList.length <1){
-    updateGamesList(gameData);
+
+  
+  React.useEffect(() => {
+    // useEffect hook
+    setTimeout(() => {
+      // simulate a delay
+      axios
+        .get("https://nflpickemapi.azurewebsites.net/GetUIGameModels")
+        .then((response) => {
+          console.log("Made API call");
+          setGameData(response.data);
+          setIsLoading(false); //set loading state
+        });
+    }, 3000);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <View
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100vh",
+        }}
+      >
+        <Text>Loading the data</Text>
+        {console.log("loading state")}
+      </View>
+    );
   }
-  if (gamesList2.length <1){
-    updateGamesList2(gamesList);
+  if (gamesList.length<1){
+    updateGamesList(gameData)
+  }
+  if (gamesList2.length<1){
+      updateGamesList2(gamesList)
+  }
+  console.log(gameData);
+  const deadPage = hasDeadlinePassed();
+  if (deadPage !=null){
+    return deadPage
   }
  
+  console.log(gameData);
+  console.log("\n.\n.\n.");
+
   console.log(gamesList);
-  console.log(gamesList2)
+  console.log("\n.\n.\n.");
+
+  console.log(gamesList2);
+  console.log("\n.\n.\n.");
 
   const SubmissionButton = ({
     navigation,
@@ -339,7 +411,6 @@ function SubmissionScreen({ navigation, route }) {
                   boxStyles={styles.categoryBox2}
                   defaultOption={selectionSet[selNum]}
                   onSelect={() => {
-                    
                     adjustSelectionSet(true, selNum, selected);
                   }}
                 />
@@ -367,7 +438,7 @@ function SubmissionScreen({ navigation, route }) {
           </View>
         </View>
       );
-    } 
+    }
   };
   return (
     <View style={styles.box}>
@@ -468,7 +539,7 @@ function SubmissionScreen({ navigation, route }) {
       </View>
     </View>
   );
-  async function updateGamesList(gameData) {
+  function updateGamesList(gameData) {
     var currentTime;
     if (gameData.length > 0) {
       currentTime = gameData[0].currentTime;
@@ -532,26 +603,24 @@ function SubmissionScreen({ navigation, route }) {
         },
       });
     }
-    
+
     setGamesList(gamesListTemp);
   }
-  async function updateGamesList2(gamesList) {
+  function updateGamesList2(gamesList) {
     var currentTime;
     if (gamesList.length < 1) {
-       return;
-      }
+      return;
+    }
     var gamesListTemp = [];
     for (var i = 0; i < gamesList.length; i++) {
       gamesListTemp.push({
         key: gamesList[i].id,
-        value:  gamesList[i].data.string
-        },
-      );
+        value: gamesList[i].data.string,
+      });
     }
-    
+
     setGamesList2(gamesListTemp);
   }
-  
-}
+};
 
 export default SubmissionScreen;

@@ -11,8 +11,8 @@ const styles = StyleSheet69();
 
 
 
-function HomeScreen2({navigation, route}) {
-  
+function HomeScreen({navigation, route}) {
+  weekNumber=1;
     return (
       <View style={styles.box}>
   
@@ -36,14 +36,10 @@ function HomeScreen2({navigation, route}) {
   
           <View style ={styles.row2}>
   
-            <TouchableOpacity>
-              <View style={styles.buttonMedium}>
-                <Text style={styles.buttonText}>Button</Text> 
-              </View>
-            </TouchableOpacity>
+            
   
-            <TouchableOpacity onPress={() => navigation.navigate('Standings')}>
-              <View style={styles.buttonMedium}>
+            <TouchableOpacity onPress={() => navigation.push('Standings')}>
+              <View style={styles.buttonRectangle}>
                 <Text style={styles.buttonText}>Standings</Text> 
               </View>
             </TouchableOpacity>
@@ -52,45 +48,24 @@ function HomeScreen2({navigation, route}) {
   
           <View style ={styles.row3}>
   
-            <TouchableOpacity>
-              <View style={styles.buttonMedium}>
-                <Text style={styles.buttonText}>Button</Text> 
+            <TouchableOpacity onPress={() => navigation.push('Board')}>
+              <View style={styles.buttonRectangle}>
+                <Text style={styles.buttonText}>Pick Board</Text> 
               </View>
             </TouchableOpacity>
   
-            <TouchableOpacity>
-  
-              <View style={styles.buttonMedium}>
-  
-                <Text style={styles.buttonText}>Button</Text> 
-  
-              </View>
-  
-            </TouchableOpacity>
+            
   
           </View>
   
   
           <View style ={styles.row3}>
   
-            <TouchableOpacity onPress={() => navigation.navigate('Submission')}>
+            <TouchableOpacity onPress={() => navigation.push('Submission')}>
   
               <View style={styles.buttonRectangle}>
   
-                <Text style={styles.buttonText}>Week 1 Submission</Text> 
-  
-              </View>
-  
-            </TouchableOpacity>
-  
-          </View>
-          <View style ={styles.row3}>
-  
-            <TouchableOpacity>
-  
-              <View style={styles.buttonRectangle}>
-  
-                <Text style={styles.buttonText}>Button</Text> 
+                <Text style={styles.buttonText}>Week {weekNumber} Submission</Text> 
   
               </View>
   
@@ -103,7 +78,7 @@ function HomeScreen2({navigation, route}) {
             <TouchableOpacity 
             onPress={() => navigation.dispatch(StackActions.replace('Login',{params: {}}))}>
   
-              <View style={styles.buttonRectangle}>
+              <View style={styles.buttonRectangleCancel}>
   
                 <Text style={styles.buttonText}>Logout</Text> 
   
@@ -118,4 +93,4 @@ function HomeScreen2({navigation, route}) {
       </View>
     );
   }
-  export default HomeScreen2;
+  export default HomeScreen;
