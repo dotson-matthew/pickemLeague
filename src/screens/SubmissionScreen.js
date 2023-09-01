@@ -73,8 +73,8 @@ const SubmissionScreen = ({ navigation, route }) => {
     const now = new Date();
     const deadline = new Date();
     deadline.setUTCDate(1);
-    deadline.setUTCHours(1);
-    deadline.setUTCMinutes(24);
+    deadline.setUTCHours(4);
+    deadline.setUTCMinutes(55);
     deadline.setUTCSeconds(59);
 
     const currentTime = now.toISOString();
@@ -156,7 +156,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     return deadPage
   }
  
-  console.log(gameData);
+  console.log("GameData: \n" +JSON.stringify(gameData));
   console.log("\n.\n.\n.");
 
   console.log(gamesList);
@@ -298,7 +298,7 @@ const SubmissionScreen = ({ navigation, route }) => {
                     <TouchableOpacity
                       onPress={() => {
                         // here is where we connect the backend connection
-
+                        getSubmitString(selectionSet)
                         setModalVisible(!modalVisible);
                       }}
                     >
@@ -615,6 +615,60 @@ const SubmissionScreen = ({ navigation, route }) => {
     }
 
     setGamesList2(gamesListTemp);
+  }
+  function getSubmitString(set) {
+    var pickList = [];
+    var teamsFirstTwo = ["NY","DE","LA"]
+    for(var i=0;i<set.length;i++){
+      var teamNameCase = false;
+      var pick = set[i];
+      var teamName2 = pick.substr(0,1);
+      var teamBig = false
+      for (var x=0; x<teamsFirstTwo.length;x++){
+        if (teamName2 == teamsFirstTwo[x]){
+          teamName2 = pick.substr(0,2);
+          teamBig = true
+        }
+      }
+      var gID; var home = false;
+      for (var z=0; z<gameData.length;z++){
+        var home2;
+        var away2;
+        var gameCorrect = false;
+        if (!teamBig){
+          home2 = gameData[z].home.substr(0,1)
+        }
+        else{
+          home2 = gameData[z].home.substr(0,2)
+        }
+        if (!teamBig){
+          away2 = gameData[z].away.substr(0,1)
+        }
+        else{
+          away2 = gameData[z].away.substr(0,2)
+        }
+        
+        if (home2 == teamName2){
+          home = true;
+          gameCorrect = true;
+        }
+        else if(away2 == teamName2){
+          home = false;
+          gameCorrect = true;
+        }
+        if (!gameCorrect){
+          continue;
+        }
+        else{
+          var pick ={weekNo: gameData[z].week,homePicked:home,pickID:z+1,pickString:gameData[z],username:username}
+          console.log("PickList Added: " + JSON.stringify(pick))
+          pickList.push(pick)
+        }
+      }
+    }
+    return pickList;
+    
+
   }
 };
 
