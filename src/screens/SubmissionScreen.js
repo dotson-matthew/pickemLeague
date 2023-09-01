@@ -19,14 +19,10 @@ import StyleSheet69 from "../components/StyleReference";
 import axios from "axios";
 const styles = StyleSheet69();
 
-function SubmissionScreen({ navigation, route }) {
-  return (
-    <SubmissionScreenContainer
-      navigation={navigation}
-    ></SubmissionScreenContainer>
-  );
-}
-const SubmissionScreenContainer = ({ navigation }) => {
+
+const SubmissionScreen = ({ navigation, route }) => {
+  const username = route.params.username
+  console.log(username)
   const [selectionSet, setSelectionSet] = React.useState([
     "",
     "",
@@ -76,11 +72,10 @@ const SubmissionScreenContainer = ({ navigation }) => {
   function hasDeadlinePassed(){
     const now = new Date();
     const deadline = new Date();
-    deadline.setUTCDate(26);
-    deadline.setUTCHours(21);
+    deadline.setUTCDate(1);
+    deadline.setUTCHours(1);
     deadline.setUTCMinutes(24);
     deadline.setUTCSeconds(59);
-
 
     const currentTime = now.toISOString();
     const deadlineTime = deadline.toISOString();
@@ -95,7 +90,7 @@ const SubmissionScreenContainer = ({ navigation }) => {
       if (earliestGame > gameData[i].deadline){
         earliestGame = gameData[i].deadline
       }
-      console.log(earliestGame)
+      console.log("Earliest Game" + earliestGame)
     }
     for (var i=0; i<gameData.length;i++){
       if (currentTime>deadlineTime){

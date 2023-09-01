@@ -34,7 +34,7 @@ function LoginScreen({ navigation, route }) {
         
   
         if ((await response).status == 200) {
-            navigation.dispatch(StackActions.replace('Home',{params: {username}}));
+            navigation.dispatch(StackActions.replace('Home',{username:username}));
         } else {
             console.log('Login failed');
         }

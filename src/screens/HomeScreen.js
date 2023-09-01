@@ -10,8 +10,10 @@ import StyleSheet69 from '../components/StyleReference'
 const styles = StyleSheet69();
 
 
-
 function HomeScreen({navigation, route}) {
+  
+  const username = route.params.username
+  console.log(username)
   weekNumber=1;
     return (
       <View style={styles.box}>
@@ -61,7 +63,7 @@ function HomeScreen({navigation, route}) {
   
           <View style ={styles.row3}>
   
-            <TouchableOpacity onPress={() => navigation.push('Submission')}>
+            <TouchableOpacity onPress={() => navigation.push('Submission', {username:username})}>
   
               <View style={styles.buttonRectangle}>
   
