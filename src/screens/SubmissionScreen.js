@@ -660,7 +660,7 @@ const SubmissionScreen = ({ navigation, route }) => {
           continue;
         }
         else{
-          var pick ={weekNo: gameData[z].week,homePicked:home,pickID:z+1,pickString:gameData[z],username:username}
+          var pick ={weekNo: gameData[z].week,homePicked:home,pickID:z+1,username:username}
           console.log("PickList Added: " + JSON.stringify(pick))
           pickList.push(pick)
         }
