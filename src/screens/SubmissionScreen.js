@@ -39,6 +39,14 @@ const SubmissionScreen = ({ navigation, route }) => {
     "",
     "",
   ]);
+  function getTripleSet(sel){
+    var copy = [...sel]
+    copy.pop()
+    return copy
+  }
+  const selectionSetT = getTripleSet(selectionSet)
+  console.log("Here is selectionSetT: ")
+  console.log(selectionSetT)
   function adjustSelectionSet(normal, selNum, selected) {
     switch (normal) {
       case true: {
@@ -361,7 +369,7 @@ const SubmissionScreen = ({ navigation, route }) => {
 
                   <SelectList
                     setSelected={(val) => setSelected(val)}
-                    data={selectionSet}
+                    data={selectionSetT}
                     save="value"
                     boxStyles={styles.categoryBox2}
                     defaultOption={selected}
