@@ -27,7 +27,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     navigation.pop()
   }
   const {username} = route.params;
-  console.log(username)
+  //console.log(username)
   const [selectionSet, setSelectionSet] = React.useState([
     "",
     "",
@@ -84,8 +84,8 @@ const SubmissionScreen = ({ navigation, route }) => {
 
     const currentTime = now.toISOString();
     const deadlineTime = deadline.toISOString();
-    console.log(currentTime)
-    console.log(deadlineTime)
+    //console.log(currentTime)
+    //console.log(deadlineTime)
     var earliestGame;
     for (var i=0; i<gameData.length;i++){
       if (i==0){
@@ -95,11 +95,11 @@ const SubmissionScreen = ({ navigation, route }) => {
       if (earliestGame > gameData[i].deadline){
         earliestGame = gameData[i].deadline
       }
-      console.log("Earliest Game" + earliestGame)
+      //console.log("Earliest Game" + earliestGame)
     }
     for (var i=0; i<gameData.length;i++){
       if (currentTime>deadlineTime){
-        console.log("Deadline Passed");
+        //console.log("Deadline Passed");
         return (
           <View>
             <Text>A game has passed it's deadline. 
@@ -126,7 +126,7 @@ const SubmissionScreen = ({ navigation, route }) => {
       axios
         .get("https://nflpickemapi.azurewebsites.net/GetUIGameModels")
         .then((response) => {
-          console.log("Made API call");
+          //console.log("Made API call");
           setGameData(response.data);
           setIsLoading(false); //set loading state
         });
@@ -145,7 +145,8 @@ const SubmissionScreen = ({ navigation, route }) => {
         }}
       >
         <Text>Loading the data</Text>
-        {console.log("loading state")}
+        {//console.log("loading state")
+        }
       </View>
     );
   }
@@ -155,16 +156,16 @@ const SubmissionScreen = ({ navigation, route }) => {
   if (gamesList2.length<1){
       updateGamesList2(gamesList)
   }
-  console.log(gameData);
+  //console.log(gameData);
   const deadPage = hasDeadlinePassed();
   if (deadPage !=null){
     return deadPage
   }
  
-  console.log("GameData: \n" +JSON.stringify(gameData));
-  console.log("\n.\n.\n.");
+  //console.log("GameData: \n" +JSON.stringify(gameData));
+  //console.log("\n.\n.\n.");
 
-  console.log(gamesList);
+  //console.log(gamesList);
   console.log("\n.\n.\n.");
 
   console.log(gamesList2);
@@ -620,9 +621,77 @@ const SubmissionScreen = ({ navigation, route }) => {
         value: gamesList[i].data.string,
       });
     }
-
+    console.log("Here is the SelectionSet")
+    console.log(selectionSet)
+    console.log("Here is the gamesListTemp")
+    console.log(gamesListTemp)
+    gameListTemp = adjustList(selectionSet,gamesListTemp)
     setGamesList2(gamesListTemp);
   }
+  function getTeamName(pick){
+    var name =""
+    var y;
+    for (var i=0; i<pick.length; i++){
+      y=pick.charAt(i)
+      if (y != ' '){
+        name += y
+      }
+      else {
+        break
+      }
+    }
+    console.log(name)
+    return name;
+  }
+  function getTeamName2(pick){
+    var name =""
+    var y;
+    var temp;
+    for (var i=pick.length; i>0; i--){
+      y=pick.charAt(i)
+      if (y != ' '){
+        temp = name
+        name = y + temp
+      }
+      else {
+        break
+      }
+    }
+    console.log(name)
+    return name;
+  }
+  function adjustList(sel,list){
+    list2 = []
+    trueInstances =0;
+    for (var i=0;i<list.length;i++){
+      var skip=false
+      var x = list[i].value
+      console.log(x)
+      var team =getTeamName(x)
+      var oppo = getTeamName2(x)
+
+      for(var x=0;x<sel.length;x++){
+        var y = sel[x]
+        team2 = getTeamName(y)
+        if (team == team2){
+          skip =true;
+          trueInstances++
+        }
+        else if(oppo == team2){
+          skip =true;
+          trueInstances++
+        }
+
+      }
+      if (skip){
+        continue;
+      }
+      list2.push(x)
+
+    }
+    return list2
+  }
+
   function getSubmitString(set) {
     var pickList = [];
     var teamsFirstTwo = ["NY","DE","LA"]
@@ -668,10 +737,14 @@ const SubmissionScreen = ({ navigation, route }) => {
         }
         else{
           var pick ={weekNo: gameData[z].week,homePicked:home,pickID:z+1,username:username}
-          console.log("PickList Added: " + JSON.stringify(pick))
+          //console.log("PickList Added: " + JSON.stringify(pick))
           pickList.push(pick)
         }
       }
+
+
+
+
     }
     return pickList;
     
