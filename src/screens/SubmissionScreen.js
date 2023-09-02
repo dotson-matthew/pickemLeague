@@ -17,11 +17,16 @@ import { SelectList } from "react-native-dropdown-select-list";
 import StyleSheet69 from "../components/StyleReference";
 
 import axios from "axios";
+import { NavigationHelpersContext } from "@react-navigation/native";
 const styles = StyleSheet69();
 
 
 const SubmissionScreen = ({ navigation, route }) => {
-  const username = route.params.username
+  const [exit,setExit] = React.useState(false)
+  if (exit){
+    navigation.pop()
+  }
+  const {username} = route.params;
   console.log(username)
   const [selectionSet, setSelectionSet] = React.useState([
     "",
@@ -72,7 +77,7 @@ const SubmissionScreen = ({ navigation, route }) => {
   function hasDeadlinePassed(){
     const now = new Date();
     const deadline = new Date();
-    deadline.setUTCDate(1);
+    deadline.setUTCDate(3);
     deadline.setUTCHours(4);
     deadline.setUTCMinutes(55);
     deadline.setUTCSeconds(59);
@@ -300,6 +305,8 @@ const SubmissionScreen = ({ navigation, route }) => {
                         // here is where we connect the backend connection
                         getSubmitString(selectionSet)
                         setModalVisible(!modalVisible);
+                        setExit(true)
+
                       }}
                     >
                       <View style={styles.buttonRectangle}>
