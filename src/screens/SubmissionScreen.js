@@ -113,8 +113,10 @@ const SubmissionScreen = ({ navigation, route }) => {
   
   const [locked, setLocked] = React.useState([]);
   const [gameData, setGameData] = React.useState([]);
-  const [gamesList, setGamesList] = React.useState([]);
-  const [gamesList2, setGamesList2] = React.useState([]);
+  //const [gamesList, setGamesList] = React.useState([]);
+  var gamesList = [];
+  //const [gamesList2, setGamesList2] = React.useState([]);
+  var gamesList2 = [];
   const [isLoading, setIsLoading] = React.useState([]);
   
 
@@ -606,8 +608,8 @@ const SubmissionScreen = ({ navigation, route }) => {
         },
       });
     }
-
-    setGamesList(gamesListTemp);
+    gamesList = gamesListTemp
+    //setGamesList(gamesListTemp);
   }
   function updateGamesList2(gamesList) {
     var currentTime;
@@ -625,8 +627,14 @@ const SubmissionScreen = ({ navigation, route }) => {
     console.log(selectionSet)
     console.log("Here is the gamesListTemp")
     console.log(gamesListTemp)
-    gameListTemp = adjustList(selectionSet,gamesListTemp)
-    setGamesList2(gamesListTemp);
+    gamesListTemp = adjustList(selectionSet,gamesListTemp)
+    console.log("Here is gameListTemp when adjust List Has Been Performed")
+    console.log(gamesListTemp)
+    gamesList2 = gamesListTemp
+    console.log("Here is gamesList2 after the assignment has taken place")
+    console.log(gamesList2)
+    
+    //setGamesList2(gamesListTemp);
   }
   function getTeamName(pick){
     var name =""
@@ -640,7 +648,7 @@ const SubmissionScreen = ({ navigation, route }) => {
         break
       }
     }
-    console.log(name)
+    
     return name;
   }
   function getTeamName2(pick){
@@ -657,38 +665,59 @@ const SubmissionScreen = ({ navigation, route }) => {
         break
       }
     }
-    console.log(name)
     return name;
   }
   function adjustList(sel,list){
-    list2 = []
+    var list2 = []
     trueInstances =0;
+    console.log("Here is where AdjustList is first called")
     for (var i=0;i<list.length;i++){
       var skip=false
-      var x = list[i].value
-      console.log(x)
-      var team =getTeamName(x)
-      var oppo = getTeamName2(x)
-
+      var value = list[i].value
+      console.log("Here is value when it is established")
+      console.log(value)
+      var team =getTeamName(value)
+      var oppo = getTeamName2(value)
+      console.log("here is team:")
+      console.log(team)
+      console.log("here is oppo")
+      console.log(oppo)
       for(var x=0;x<sel.length;x++){
         var y = sel[x]
-        team2 = getTeamName(y)
+        console.log("Here is y")
+        console.log(y)
+        var team2 = getTeamName(y)
+        console.log("here is team2")
+        console.log(team2)
+        console.log("here is team")
+        console.log(team)
         if (team == team2){
           skip =true;
           trueInstances++
+          console.log("here is y when it is equal")
+          console.log(y)
+          break
         }
         else if(oppo == team2){
           skip =true;
           trueInstances++
+          console.log("here is y when it is equal")
+          console.log(y)
+          break
         }
 
       }
-      if (skip){
+      if (skip==true){
+        console.log("true")
         continue;
       }
-      list2.push(x)
+      console.log("here is value when it is pushed")
+      console.log(value)
+      list2.push(value)
 
     }
+    console.log("here is list2 when it is returned")
+    console.log(list2)
     return list2
   }
 
