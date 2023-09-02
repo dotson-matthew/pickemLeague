@@ -26,7 +26,7 @@ const SubmissionScreen = ({ navigation, route }) => {
   if (exit){
     navigation.pop()
   }
-  const {username} = route.params;
+  //const {username} = route.params;
   //console.log(username)
   const [selectionSet, setSelectionSet] = React.useState([
     "",
