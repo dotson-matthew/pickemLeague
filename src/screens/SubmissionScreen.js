@@ -39,6 +39,25 @@ const SubmissionScreen = ({ navigation, route }) => {
     "",
     "",
   ]);
+  function getTripleSet(sel){
+    var copy = [...sel]
+    copy.pop()
+    return copy
+  }
+  const selectionSetT = getTripleSet(selectionSet)
+  const now = new Date();
+  const deadline = new Date();
+  deadline.setUTCDate(4);
+  deadline.setUTCHours(4);
+  deadline.setUTCMinutes(55);
+  deadline.setUTCSeconds(59);
+  const prime = new Date();
+  prime.setUTCDate(now.getUTCDate()+1);
+  prime.setUTCHours(0);
+  prime.setUTCMinutes(0);
+  prime.setUTCSeconds(0);
+
+
   function adjustSelectionSet(normal, selNum, selected) {
     switch (normal) {
       case true: {
@@ -75,12 +94,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     }
   }
   function hasDeadlinePassed(){
-    const now = new Date();
-    const deadline = new Date();
-    deadline.setUTCDate(3);
-    deadline.setUTCHours(4);
-    deadline.setUTCMinutes(55);
-    deadline.setUTCSeconds(59);
+    
 
     const currentTime = now.toISOString();
     const deadlineTime = deadline.toISOString();
@@ -113,9 +127,13 @@ const SubmissionScreen = ({ navigation, route }) => {
   
   const [locked, setLocked] = React.useState([]);
   const [gameData, setGameData] = React.useState([]);
-  const [gamesList, setGamesList] = React.useState([]);
-  const [gamesList2, setGamesList2] = React.useState([]);
+  var gamesList = [];
+  var gamesList2 = [];
   const [isLoading, setIsLoading] = React.useState([]);
+  var gameListPYO = [];
+  var gameListSun = [];
+  var gameListMon = [];
+  var gameListPrime = [];
   
 
   
@@ -149,26 +167,23 @@ const SubmissionScreen = ({ navigation, route }) => {
       </View>
     );
   }
-  if (gamesList.length<1){
-    updateGamesList(gameData)
-  }
-  if (gamesList2.length<1){
-      updateGamesList2(gamesList)
-  }
-  console.log(gameData);
+  console.log("This is gameData:")
+  console.log(gameData)
+
+  updateGamesList(gameData)
+  
+  updateGamesList2(gamesList)
+  updateSegregatedGameLists(gamesList2)
+  console.log("Here is gamesListPYO:")
+  console.log(gameListPYO)
+
+  console.log("Here is gamesListPrime:")
+  console.log(gameListPrime)
+  
   const deadPage = hasDeadlinePassed();
   if (deadPage !=null){
     return deadPage
   }
- 
-  console.log("GameData: \n" +JSON.stringify(gameData));
-  console.log("\n.\n.\n.");
-
-  console.log(gamesList);
-  console.log("\n.\n.\n.");
-
-  console.log(gamesList2);
-  console.log("\n.\n.\n.");
 
   const SubmissionButton = ({
     navigation,
@@ -179,6 +194,8 @@ const SubmissionScreen = ({ navigation, route }) => {
   }) => {
     var title = "";
     var primeTime = false;
+    var sund=false;
+    var mond=false;
     var triplePlay = false;
     var submitButton = false;
     var style = styles.buttonLittle;
@@ -234,7 +251,7 @@ const SubmissionScreen = ({ navigation, route }) => {
         break;
       }
       case 6: {
-        primeTime = true;
+        sund = true;
         if (title2 == "") {
           title = "SNF";
         } else {
@@ -243,7 +260,7 @@ const SubmissionScreen = ({ navigation, route }) => {
         break;
       }
       case 7: {
-        primeTime = true;
+        mond = true;
         if (title2 == "") {
           title = "MNF";
         } else {
@@ -269,7 +286,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     const [modalVisible, setModalVisible] = React.useState(false);
     const [selected, setSelected] = React.useState("");
 
-    const data = gamesList2;
+    var data = gamesList2;
     // Object structure of game received from API
     // game {
     //   gameId (string),
@@ -305,7 +322,8 @@ const SubmissionScreen = ({ navigation, route }) => {
                         // here is where we connect the backend connection
                         getSubmitString(selectionSet)
                         setModalVisible(!modalVisible);
-                        setExit(true)
+                        
+                        //setExit(true)
 
                       }}
                     >
@@ -358,7 +376,7 @@ const SubmissionScreen = ({ navigation, route }) => {
 
                   <SelectList
                     setSelected={(val) => setSelected(val)}
-                    data={selectionSet}
+                    data={selectionSetT}
                     save="value"
                     boxStyles={styles.categoryBox2}
                     defaultOption={selected}
@@ -388,6 +406,15 @@ const SubmissionScreen = ({ navigation, route }) => {
         </View>
       );
     } else {
+      if (sund ==true){
+        data = gameListSun
+      }
+      else if (mond ==true){
+        data = gameListMon
+      }
+      else {
+        data = gameListPYO
+      }
       return (
         <View>
           <Modal
@@ -605,8 +632,7 @@ const SubmissionScreen = ({ navigation, route }) => {
         },
       });
     }
-
-    setGamesList(gamesListTemp);
+    gamesList = gamesListTemp
   }
   function updateGamesList2(gamesList) {
     var currentTime;
@@ -620,9 +646,125 @@ const SubmissionScreen = ({ navigation, route }) => {
         value: gamesList[i].data.string,
       });
     }
-
-    setGamesList2(gamesListTemp);
+    
+    gamesListTemp = adjustList(selectionSet,gamesListTemp)
+    gamesList2 = gamesListTemp
   }
+  function updateSegregatedGameLists(list){
+    var listPYO=[];
+    var listSun=[];
+    var listMon =[];
+    
+    
+    var dotw = ["M","S"];
+    var deadTime = deadline.toISOString();
+    var primeTime = prime.toISOString();
+    console.log("Here is dead:")
+    console.log(deadTime)
+    console.log("Here is prime:")
+    console.log(primeTime)
+
+    for (var i=0;i<list.length;i++){
+      var pyo = false;
+      var sun =false;
+      var mon =false;
+      if (dotw[getRandomInt(2)] =="M"){
+        mon = true;
+      }
+      else if ( ( dotw =="S") && ( deadTime > primeTime  )){
+        sun= true;
+      }
+      else{
+        pyo = true;
+      } 
+      if(sun==true){
+        listSun.push(list[i])
+      }
+      if(mon==true){
+        listMon.push(list[i])
+      }
+      if (pyo==true){
+        listPYO.push(list[i])
+      }
+    }
+    
+    gameListPYO = listPYO;
+    gameListSun = listSun;
+    gameListMon = listMon;
+
+  }
+  function getTeamName(pick){
+    var name =""
+    var y;
+    for (var i=0; i<pick.length; i++){
+      y=pick.charAt(i)
+      if (y != ' '){
+        name += y
+      }
+      else {
+        break
+      }
+    }
+    
+    return name;
+  }
+  function getTeamName2(pick){
+    var name =""
+    var y;
+    var temp;
+    for (var i=pick.length; i>0; i--){
+      y=pick.charAt(i)
+      if (y != ' '){
+        temp = name
+        name = y + temp
+      }
+      else {
+        break
+      }
+    }
+    return name;
+  }
+  function adjustList(sel,list){
+     var list2 = []
+     var trueInstances =0;
+     
+     for (var i=0;i<list.length;i++){
+       var skip=false
+       var value = list[i].value
+       
+       var team =getTeamName(value)
+       var oppo = getTeamName2(value)
+       
+       for(var x=0;x<sel.length;x++){
+         var y = sel[x]
+         
+         var team2 = getTeamName(y)
+         
+         if (team == team2){
+           skip =true;
+           trueInstances++
+           
+           break
+         }
+         else if(oppo == team2){
+           skip =true;
+           trueInstances++
+           
+           break
+         }
+
+      }
+       if (skip==true){
+         continue;
+       }
+       
+       list2.push(value)
+
+    }
+    
+     return list2
+  }
+
   function getSubmitString(set) {
     var pickList = [];
     var teamsFirstTwo = ["NY","DE","LA"]
@@ -667,7 +809,7 @@ const SubmissionScreen = ({ navigation, route }) => {
           continue;
         }
         else{
-          var pick ={weekNo: gameData[z].week,homePicked:home,pickID:z+1,username:username}
+          var pick ={weekNo: gameData[z].week,homePicked:home,pickID:i+1,username:username,gameID:gameData[z].gameId}
           console.log("PickList Added: " + JSON.stringify(pick))
           pickList.push(pick)
         }
@@ -676,6 +818,9 @@ const SubmissionScreen = ({ navigation, route }) => {
     return pickList;
     
 
+  }
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
   }
 };
 
