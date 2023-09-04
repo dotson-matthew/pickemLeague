@@ -19,6 +19,7 @@ import StyleSheet69 from "../components/StyleReference";
 const styles = StyleSheet69();
 
 function HomeScreen({ navigation, route }) {
+  
   const {username} = route.params;
   var weekNumber = 1;
   return (
