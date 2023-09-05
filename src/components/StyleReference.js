@@ -106,6 +106,17 @@ const styles = StyleSheet.create({
     alignItems: 'center'
 
   },
+  buttonLittleLocked: {
+    backgroundColor: COLORS.gray,
+    height: buttonLSizerV, 
+    width: buttonLSizerH,
+    borderWidth: 1.5,
+    borderColor: COLORS.orange,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
+
+  },
   buttonMedium: {
     backgroundColor: COLORS.lightBlue,
     height: buttonSizerV, 

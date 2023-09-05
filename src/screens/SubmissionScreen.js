@@ -22,9 +22,8 @@ const styles = StyleSheet69();
 
 const SubmissionScreen = ({ navigation, route }) => {
   const [exit, setExit] = React.useState(false);
-  if (exit) {
-    navigation.pop();
-  }
+  const [firstRender,setFirstRender] = React.useState(true);
+  
   const { username } = route.params;
   console.log(username);
   const [selectionSet, setSelectionSet] = React.useState([
@@ -38,12 +37,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     "",
     "",
   ]);
-  function getTripleSet(sel) {
-    var copy = [...sel];
-    copy.pop();
-    return copy;
-  }
-  const selectionSetT = getTripleSet(selectionSet);
+  
   const now = new Date();
   const deadline = new Date();
   deadline.setUTCDate(5);
@@ -55,6 +49,7 @@ const SubmissionScreen = ({ navigation, route }) => {
   prime.setUTCHours(0);
   prime.setUTCMinutes(0);
   prime.setUTCSeconds(0);
+  prime.setUTCMilliseconds(0);
 
   function adjustSelectionSet(normal, selNum, selected) {
     switch (normal) {
@@ -93,9 +88,8 @@ const SubmissionScreen = ({ navigation, route }) => {
   }
   function hasDeadlinePassed() {
     const currentTime = now.toISOString();
-    const deadlineTime = deadline.toISOString();
+    
     console.log(currentTime);
-    console.log(deadlineTime);
     var earliestGame;
     for (var i = 0; i < gameData.length; i++) {
       if (i == 0) {
@@ -122,7 +116,8 @@ const SubmissionScreen = ({ navigation, route }) => {
     }
   }
 
-  const [locked, setLocked] = React.useState([]);
+  const [databaseSet, setDatabaseSet] = React.useState([]);
+  var lockedList = [false,false,false,false,false,false,false,false,false]
   const [gameData, setGameData] = React.useState([]);
   const [gameData2, setGameData2] = React.useState([]);
   var gamesList = [];
@@ -135,57 +130,11 @@ const SubmissionScreen = ({ navigation, route }) => {
 
   React.useEffect(() => {
     // useEffect hook
-    setGameData([
-      {
-        away: "DET",
-        awaySpread: "7.0",
-        currentTime: "09/03/2023 21:08:43",
-        dayOfWeek: "T",
-        deadline: "2023-09-08T00:10:00.000Z",
-        gameId: "1",
-        home: "KC",
-        homeSpread: "-7.0",
-        kickoff: "2023-09-08T00:20:00.000Z",
-        week: "1",
-      },
-      {
-        away: "JAX",
-        awaySpread: "-4.0",
-        currentTime: "09/03/2023 21:08:43",
-        dayOfWeek: "S",
-        deadline: "2023-09-10T16:50:00.000Z",
-        gameId: "2",
-        home: "IND",
-        homeSpread: "4.0",
-        kickoff: "2023-09-10T17:00:00.000Z",
-        week: "1",
-      },
-      {
-        away: "GB",
-        awaySpread: "2.5",
-        currentTime: "09/03/2023 21:08:43",
-        dayOfWeek: "S",
-        deadline: "2023-09-11T00:15:00.000Z",
-        gameId: "3",
-        home: "CHI",
-        homeSpread: "-2.5",
-        kickoff: "2023-09-11T00:25:00.000Z",
-        week: "1",
-      },
-      {
-        away: "TB",
-        awaySpread: "2.5",
-        currentTime: "09/03/2023 21:08:43",
-        dayOfWeek: "M",
-        deadline: "2023-09-12T00:15:00.000Z",
-        gameId: "4",
-        home: "MIN",
-        homeSpread: "-2.5",
-        kickoff: "2023-09-12T00:25:00.000Z",
-        week: "1",
-      }
-    ]);
-    setIsLoading(false)
+    setDatabaseSet({
+      "data" : [ { gameId: 3, locked: false , PickID: 7, homePicked:true, string:"CHI -2.5 vs GB"},  {gameID: 2, locked: true, PickID: 1, homePicked:false, string:"JAX -4.0 @ IND" },{gameID: 2, locked: true, PickID: 9, homePicked:false, string:"JAX -4.0 @ IND" } ], 
+    "SundayAt7": "2023-09-11T00:00:00.000Z"
+    })
+    setIsLoading(true)
      setTimeout(() => {
       // simulate a delay
       axios
@@ -194,10 +143,63 @@ const SubmissionScreen = ({ navigation, route }) => {
           console.log("Made API call");
           //setGameData(response.data);
           setGameData2(response.data);
+          setGameData([
+            {
+              away: "DET",
+              awaySpread: "7.0",
+              currentTime: "09/03/2023 21:08:43",
+              dayOfWeek: "T",
+              deadline: "2023-09-08T00:10:00.000Z",
+              gameId: "1",
+              home: "KC",
+              homeSpread: "-7.0",
+              kickoff: "2023-09-08T00:20:00.000Z",
+              week: "1",
+            },
+            {
+              away: "JAX",
+              awaySpread: "-4.0",
+              currentTime: "09/03/2023 21:08:43",
+              dayOfWeek: "S",
+              deadline: "2023-09-10T16:50:00.000Z",
+              gameId: "2",
+              home: "IND",
+              homeSpread: "4.0",
+              kickoff: "2023-09-10T17:00:00.000Z",
+              week: "1",
+            },
+            {
+              away: "GB",
+              awaySpread: "2.5",
+              currentTime: "09/03/2023 21:08:43",
+              dayOfWeek: "S",
+              deadline: "2023-09-11T00:15:00.000Z",
+              gameId: "3",
+              home: "CHI",
+              homeSpread: "-2.5",
+              kickoff: "2023-09-11T00:25:00.000Z",
+              week: "1",
+            },
+            {
+              away: "TB",
+              awaySpread: "2.5",
+              currentTime: "09/03/2023 21:08:43",
+              dayOfWeek: "M",
+              deadline: "2023-09-12T00:15:00.000Z",
+              gameId: "4",
+              home: "MIN",
+              homeSpread: "-2.5",
+              kickoff: "2023-09-12T00:25:00.000Z",
+              week: "1",
+            }
+          ]);
+          
+          
           setIsLoading(false); //set loading state
         });
     }, 3000);
   }, []);
+
 
   if (isLoading) {
     return (
@@ -215,25 +217,49 @@ const SubmissionScreen = ({ navigation, route }) => {
       </View>
     );
   }
+  updateLockedList(databaseSet,firstRender);
+  
   console.log("This is gameData:");
   console.log(gameData);
   console.log("This is gameData2:");
   console.log(gameData2);
-
+  
+  
   updateGamesList(gameData);
 
   updateGamesList2(gamesList);
   updateSegregatedGameLists(gamesList2);
-  console.log("Here is gamesListPYO:");
-  console.log(gameListPYO);
+  if (exit == true) {
+    navigation.pop();
+  }
 
-  console.log("Here is gamesListPrime:");
-  console.log(gameListPrime);
+  function getTripleSet(sel) {
+    // var copy = [...sel];
+    // copy.pop();
+    
+    var copy = []
+    for (var i=0; i<sel.length -1;i++){
+      if (lockedList[i]){
+        copy.push({value:sel[i],gID:gamesList[i].id,disabled:true})
+      }
+      else{
+        copy.push({value:sel[i],gID:gamesList[i].id,disabled:false})
+      }
+      
+    }
+    copy.push({value:"Delete",gid:999,disabled:false})
+    return copy;
+
+  }
+  const selectionSetT = getTripleSet(selectionSet);
+
+
 
   const deadPage = hasDeadlinePassed();
   if (deadPage != null) {
     return deadPage;
   }
+  
 
   const SubmissionButton = ({
     navigation,
@@ -241,7 +267,9 @@ const SubmissionScreen = ({ navigation, route }) => {
     title2,
     games,
     gamesAlreadySelected,
+    locked
   }) => {
+    var lockOn = locked
     var title = "";
     var primeTime = false;
     var sund = false;
@@ -352,7 +380,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     //   Deadline (string),
     // }
     //
-
+    
     if (submitButton) {
       return (
         <View>
@@ -377,6 +405,7 @@ const SubmissionScreen = ({ navigation, route }) => {
                         // here is where we connect the backend connection
                         getSubmitString(selectionSet);
                         setModalVisible(!modalVisible);
+                        setExit(true)
 
                         //setExit(true)
                       }}
@@ -388,6 +417,7 @@ const SubmissionScreen = ({ navigation, route }) => {
                     <TouchableOpacity
                       onPress={() => {
                         setModalVisible(!modalVisible);
+                        
                       }}
                     >
                       <View style={styles.buttonRectangleCancel}>
@@ -405,6 +435,17 @@ const SubmissionScreen = ({ navigation, route }) => {
         </View>
       );
     } else if (triplePlay) {
+      if (lockOn==true){
+        
+        style = styles.buttonLittleLocked
+      
+      return(
+        <View style={style}>
+          <Text style={styles.buttonText}>{title}</Text>
+        </View>
+      )
+      }
+      else{      
       return (
         <View>
           <TouchableOpacity
@@ -430,7 +471,13 @@ const SubmissionScreen = ({ navigation, route }) => {
 
                   <SelectList
                     setSelected={(val) => {
-                      setSelected(val)
+                      if (val == "Delete"){
+                        setSelected("")
+                      }
+                      
+                      else{
+                        setSelected(val)
+                      }
                     }
                   }
                     data={selectionSetT}
@@ -439,6 +486,7 @@ const SubmissionScreen = ({ navigation, route }) => {
                     defaultOption={selected}
                     onSelect={() => {
                       adjustSelectionSet(false, selNum, selected);
+                      setFirstRender(false)
                     }}
                   />
                   <View style={styles.spacer} />
@@ -462,6 +510,7 @@ const SubmissionScreen = ({ navigation, route }) => {
           </TouchableOpacity>
         </View>
       );
+     }
     } else {
       if (sund == true) {
         data = gameListSun;
@@ -470,6 +519,16 @@ const SubmissionScreen = ({ navigation, route }) => {
       } else {
         data = gameListPYO;
       }
+      if (lockOn==true){
+        style = styles.buttonLittleLocked
+      
+      return(
+        <View style={style}>
+          <Text style={styles.buttonText}>{title}</Text>
+        </View>
+      )
+      }
+      
       return (
         <View>
           <Modal
@@ -505,6 +564,7 @@ const SubmissionScreen = ({ navigation, route }) => {
                   defaultOption={selectionSet[selNum]}
                   onSelect={() => {
                     adjustSelectionSet(true, selNum, selected);
+                    setFirstRender(false)
                   }}
                 />
                 <View style={styles.spacer} />
@@ -553,17 +613,21 @@ const SubmissionScreen = ({ navigation, route }) => {
           navigation={navigation}
           selNum={0}
           title2={selectionSet[0]}
+          locked = {lockedList[0]}
         />
 
         <SubmissionButton
           navigation={navigation}
           selNum={1}
           title2={selectionSet[1]}
+          locked = {lockedList[1]}
         />
         <SubmissionButton
           navigation={navigation}
           selNum={2}
           title2={selectionSet[2]}
+
+          locked = {lockedList[2]}
         />
       </View>
       <View style={styles.row}>
@@ -571,18 +635,24 @@ const SubmissionScreen = ({ navigation, route }) => {
           navigation={navigation}
           selNum={3}
           title2={selectionSet[3]}
+
+          locked = {lockedList[3]}
         />
 
         <SubmissionButton
           navigation={navigation}
           selNum={4}
           title2={selectionSet[4]}
+
+          locked = {lockedList[4]}
         />
 
         <SubmissionButton
           navigation={navigation}
           selNum={5}
           title2={selectionSet[5]}
+
+          locked = {lockedList[5]}
         />
       </View>
 
@@ -598,12 +668,16 @@ const SubmissionScreen = ({ navigation, route }) => {
           navigation={navigation}
           selNum={6}
           title2={selectionSet[6]}
+
+          locked = {lockedList[6]}
         />
 
         <SubmissionButton
           navigation={navigation}
           selNum={7}
           title2={selectionSet[7]}
+
+          locked = {lockedList[7]}
         />
       </View>
 
@@ -619,6 +693,7 @@ const SubmissionScreen = ({ navigation, route }) => {
           navigation={navigation}
           selNum={8}
           title2={selectionSet[8]}
+          locked = {lockedList[8]}
         />
       </View>
       <View style={styles.spacer} />
@@ -632,11 +707,36 @@ const SubmissionScreen = ({ navigation, route }) => {
       </View>
     </View>
   );
+  function updateLockedList(database, bool){
+    var pick;
+    var sel;
+    for (var i=0; i<database.data.length;i++){
+      pick =database.data[i];
+      console.log(pick)
+      for (var x=1; x<selectionSet.length+1;x++){
+        console.log("X\t" + x + "\tpick.pickID:\t"+pick.PickID)
+        if (x==pick.PickID){
+          if (bool){
+            selectionSet[x-1] = pick.string;
+          }
+          
+          if (pick.locked == true){
+            lockedList[x-1]=true
+          }
+        }
+        
+      }
+    }
+
+    console.log("This is LockedList")
+    console.log(lockedList)
+  }
+
   function updateGamesList(gameData) {
-    var currentTime;
-    if (gameData.length > 0) {
-      currentTime = gameData[0].currentTime;
-    } else return;
+    
+    if (gameData.length <1 ) {
+       return;
+    }
     var gamesListTemp = [];
     var dotw;
     var k;
@@ -720,15 +820,12 @@ const SubmissionScreen = ({ navigation, route }) => {
     var listSun = [];
     var listMon = [];
 
-    var deadTime = deadline.toISOString();
+    
     var primeTime = prime.toISOString();
-    console.log("Here is dead:");
-    console.log(deadTime);
-    console.log("Here is prime:");
-    console.log(primeTime);
+    
 
     for (var i = 0; i < list.length; i++) {
-      console.log(i + "\n" + list.length)
+     
       var pyo = false;
       var sun = false;
       var mon = false;
@@ -836,6 +933,7 @@ const SubmissionScreen = ({ navigation, route }) => {
       if (skip == true) {
         status = true;
       }
+      
 
       list2.push({value:value,gID:id,disabled:status});
     }
