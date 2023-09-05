@@ -380,7 +380,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     //   Deadline (string),
     // }
     //
-    
+    var output;
     if (submitButton) {
       return (
         <View>
@@ -403,7 +403,9 @@ const SubmissionScreen = ({ navigation, route }) => {
                     <TouchableOpacity
                       onPress={() => {
                         // here is where we connect the backend connection
-                        getSubmitString(selectionSet);
+                        output = getSubmitString(selectionSet);
+                        console.log("This is output:")
+                        console.log(output)
                         setModalVisible(!modalVisible);
                         setExit(true)
 
@@ -908,7 +910,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     for (var i = 0; i < list.length; i++) {
       var skip = false;
       var value = list[i].value;
-      var id = list[i].id;
+      var id = list[i].key;
       var status = list[i].disabled
       var team = getTeamName(value);
       var oppo = getTeamName2(value);
@@ -982,12 +984,17 @@ const SubmissionScreen = ({ navigation, route }) => {
         if (!gameCorrect) {
           continue;
         } else {
+          var additive =0;
+          if (home ==true){
+            additive++
+          }
           var pick = {
             weekNo: gameData[z].week,
             homePicked: home,
             pickID: i + 1,
             username: username,
             gameID: gameData[z].gameId,
+            string: gamesList2[(z*2)+additive].value
           };
           console.log("PickList Added: " + JSON.stringify(pick));
           pickList.push(pick);
