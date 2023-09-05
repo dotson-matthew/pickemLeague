@@ -22,7 +22,7 @@ const buttonRSizerV = screenWindow.height * 0.1;
 const buttonLSizerH = screenWindow.width * 0.25;
 const buttonLSizerV = screenWindow.height * 0.1;
 const textSizer = screenWindow.width * 0.06;
-const imageSizer = screenWindow.width * 0.33;
+const imageSizer = screenWindow.width * 0.25;
 const spacerSizerV = screenWindow.height* 0.015;
 const spacerSizerH = screenWindow.width* 0.05;
 
@@ -60,6 +60,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     
   
+  },
+  rowLogin: {
+    flexDirection: 'row',
+    
+    justifyContent: 'space-evenly',
+    marginVertical: rowSpacerV*2
+    
   },
   home_container: {
     flex: 1,
@@ -154,6 +161,22 @@ const styles = StyleSheet.create({
     fontSize: textSizer,
     fontWeight: 'bold',
     textDecorationLine: 'underline',
+    color: 'black',
+    textAlign: 'center',
+    marginTop: 1,
+  },
+  loginTextPrompt:{
+    fontSize: textSizer*.80,
+    fontWeight: 'bold',
+    
+    color: 'black',
+    textAlign: 'center',
+    marginTop: 1,
+  },
+  loginTextInput:{
+    fontSize: textSizer*.60,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
     color: 'black',
     textAlign: 'center',
     marginTop: 1,

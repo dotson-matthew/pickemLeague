@@ -28,10 +28,12 @@ function HomeScreen({ navigation, route }) {
         <View style={styles.imageBox}>
           <Image style={styles.nflLogo} source={NFL_Logo} />
         </View>
-
-        <View style={styles.imageBox}>
-          <Image source={Glennon} style={styles.profilePhoto} />
-        </View>
+      {
+      //   <View style={styles.imageBox}>
+      //   <Image source={Glennon} style={styles.profilePhoto} />
+      // </View>
+      }
+        
       </View>
       
       <View style={styles.row2}>
@@ -41,23 +43,27 @@ function HomeScreen({ navigation, route }) {
             
           
       </View>
-
       <View>
-        <View style={styles.row2}>
-          <TouchableOpacity onPress={() => navigation.push("Standings")}>
-            <View style={styles.buttonRectangle}>
-              <Text style={styles.buttonText}>Standings</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+    {//*
+    //
+    // <View style={styles.row2}>
+    //   <TouchableOpacity onPress={() => navigation.push("Standings")}>
+    //     <View style={styles.buttonRectangle}>
+    //       <Text style={styles.buttonText}>Standings</Text>
+    //     </View>
+    //   </TouchableOpacity>
+    // </View>
+  //   <View style={styles.row3}>
+  //   <TouchableOpacity onPress={() => navigation.push("Board")}>
+  //     <View style={styles.buttonRectangle}>
+  //       <Text style={styles.buttonText}>Pick Board</Text>
+  //     </View>
+  //   </TouchableOpacity>
+  // </View>
+    }
+      
 
-        <View style={styles.row3}>
-          <TouchableOpacity onPress={() => navigation.push("Board")}>
-            <View style={styles.buttonRectangle}>
-              <Text style={styles.buttonText}>Pick Board</Text>
-            </View>
-          </TouchableOpacity>
-        </View>
+       
 
         <View style={styles.row3}>
           <TouchableOpacity
