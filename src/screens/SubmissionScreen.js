@@ -406,6 +406,8 @@ const SubmissionScreen = ({ navigation, route }) => {
                         output = getSubmitString(selectionSet);
                         console.log("This is output:")
                         console.log(output)
+
+                        axios.post("https://nflpickemapi.azurewebsites.net/PostPickSet", getSubmitString(selectionSet));
                         setModalVisible(!modalVisible);
                         setExit(true)
 
@@ -994,7 +996,7 @@ const SubmissionScreen = ({ navigation, route }) => {
             pickID: i + 1,
             username: username,
             gameID: gameData[z].gameId,
-            string: gamesList2[(z*2)+additive].value
+            pickString: gamesList2[(z*2)+additive].value
           };
           console.log("PickList Added: " + JSON.stringify(pick));
           pickList.push(pick);
