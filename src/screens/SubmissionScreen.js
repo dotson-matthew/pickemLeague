@@ -157,7 +157,6 @@ const SubmissionScreen = ({ navigation, route }) => {
           console.log("Here is API response")
           console.log(response.data);
           setDatabaseSet(response.data)
-          setDatabaseSet([{"gameID": 2, "homePicked": false, "isLocked": true, "pickID": 1, "pickString": "JAX -4.0 @ IND"}, {"gameID": 1, "homePicked": false, "isLocked": false, "pickID": 2, "pickString": "DET +7.0 @ KC"}, {"gameID": 3, "homePicked": true, "isLocked": false, "pickID": 7, "pickString": "CHI -2.5 vs GB"}, {"gameID": 2, "homePicked": false, "isLocked": true, "pickID": 9, "pickString": "JAX -4.0 @ IND"}])
           
           setIsLoading(false); //set loading state
         });
