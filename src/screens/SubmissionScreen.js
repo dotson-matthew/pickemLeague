@@ -370,7 +370,7 @@ const SubmissionScreen = ({ navigation, route }) => {
 
                         axios.post("https://nflpickemapi.azurewebsites.net/PostPickSet", getSubmitString(selectionSet));
                         setModalVisible(!modalVisible);
-                        //setExit(true)
+                        setExit(true)
 
                         //setExit(true)
                       }}
@@ -677,8 +677,6 @@ const SubmissionScreen = ({ navigation, route }) => {
     var sel;
     for (var i=0; i<database.length;i++){
       pick =database[i];
-      console.log("HERE IS PICK:")
-      console.log(pick)
       for (var x=1; x<selectionSet.length+1;x++){
         console.log("X\t" + x + "\tpick.pickID:\t"+pick.pickID)
         if (x==pick.pickID){
@@ -883,7 +881,6 @@ const SubmissionScreen = ({ navigation, route }) => {
       var status = list[i].disabled
       var team = getTeamName(value);
       var oppo = getTeamName2(value);
-      console.log(selectionSet)
       for (var x = 0; x < sel.length; x++) {
         var y = sel[x];
 
@@ -970,9 +967,6 @@ const SubmissionScreen = ({ navigation, route }) => {
           pickList.push(pick);
         }
       }
-    }
-    if (pickList == []){
-      return ["Empty"]
     }
     return pickList;
   }
