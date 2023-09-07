@@ -94,23 +94,25 @@ const styles = StyleSheet.create({
   buttonLittle: {
     backgroundColor: COLORS.lightBlue,
     height: buttonLSizerV, 
-    width: buttonLSizerH,
+    width: buttonLSizerH*1.15,
     borderWidth: 1.5,
     borderColor: COLORS.orange,
     borderRadius: 10,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginHorizontal:1
 
   },
   buttonLittleTriple: {
     backgroundColor: COLORS.yellow,
-    height: buttonLSizerV, 
-    width: buttonLSizerH,
+    height: buttonLSizerV*1.15, 
+    width: buttonLSizerH*1.15,
     borderWidth: 1.5,
     borderColor: COLORS.orange,
     borderRadius: 10,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center', 
+    marginHorizontal:1
 
   },
   buttonLittleLocked: {
@@ -224,7 +226,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     borderColor: 'black',
     borderWidth: 3, 
-    borderRadius: 10
+    borderRadius: 10,
+    marginVertical: 3,
     
 
   },

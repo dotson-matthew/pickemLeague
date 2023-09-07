@@ -238,7 +238,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     if (title2 == selectionSet[8] && title2 != "") {
       style = styles.buttonLittleTriple;
     } else style = styles.buttonLittle;
-
+ 
     switch (selNum) {
       case 0: {
         if (title2 == "") {
@@ -550,14 +550,6 @@ const SubmissionScreen = ({ navigation, route }) => {
   };
   return (
     <View style={styles.box}>
-      <View style={styles.row}>
-        <View style={styles.categoryBox}>
-          <Text style={styles.boxText}>Pick Set:</Text>
-        </View>
-        <View style={styles.categoryBoxBigger}>
-          <Text style={styles.boxText2}>{JSON.stringify(selectionSet)}</Text>
-        </View>
-      </View>
       <View style={styles.row}>
         <View style={styles.categoryBoxRectangle}>
           <Text style={styles.boxText}>PYO 1-6:</Text>
