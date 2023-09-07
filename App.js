@@ -36,7 +36,7 @@ const styles = StyleSheet69();
 
 /** Stack Navigation Creation */
 const Stack = createNativeStackNavigator();
-const WeekNumber = 6;
+const WeekNumber = 1;
 
 function App() {
   return (

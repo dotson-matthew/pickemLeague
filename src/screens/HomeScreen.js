@@ -20,7 +20,8 @@ const styles = StyleSheet69();
 
 function HomeScreen({ navigation, route }) {
   
-  const {username} = route.params;
+  const username = route.params.username;
+  //const username = "Developer"
   var weekNumber = 1;
   return (
     <View style={styles.box}>
