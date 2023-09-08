@@ -362,7 +362,7 @@ const SubmissionScreen = ({ navigation, route }) => {
                         // here is where we connect the backend connection
                         output = getSubmitString(selectionSet);
                         console.log("This is output:");
-                        console.log(output);
+                        console.log(output); 
 
                         axios.post(
                           "https://nflpickemapi.azurewebsites.net/PostPickSet",
@@ -886,11 +886,13 @@ const SubmissionScreen = ({ navigation, route }) => {
       var teamNameCase = false;
       var pick = set[i];
 
-      var teamName2 = pick.substr(0, 1);
+      var teamName2 = pick.substr(0, 2);
+      console.log("Here is TN2")
+      console.log(teamName2)
       var teamBig = false;
       for (var x = 0; x < teamsFirstTwo.length; x++) {
         if (teamName2 == teamsFirstTwo[x]) {
-          teamName2 = pick.substr(0, 2);
+          teamName2 = pick.substr(0, 3);
           teamBig = true;
         }
       }
@@ -901,14 +903,14 @@ const SubmissionScreen = ({ navigation, route }) => {
         var away2;
         var gameCorrect = false;
         if (!teamBig) {
-          home2 = gameData[z].home.substr(0, 1);
-        } else {
           home2 = gameData[z].home.substr(0, 2);
+        } else {
+          home2 = gameData[z].home.substr(0, 3);
         }
         if (!teamBig) {
-          away2 = gameData[z].away.substr(0, 1);
-        } else {
           away2 = gameData[z].away.substr(0, 2);
+        } else {
+          away2 = gameData[z].away.substr(0, 3);
         }
 
         if (home2 == teamName2) {
