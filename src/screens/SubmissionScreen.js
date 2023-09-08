@@ -881,7 +881,7 @@ const SubmissionScreen = ({ navigation, route }) => {
       gameID: 0,
       pickString: "EMPTY",
     });
-    var teamsFirstTwo = ["NY", "DE", "LA"];
+    var teamsFirstTwo = ["NY", "DE", "LA", "MI"];
     for (var i = 0; i < set.length; i++) {
       var teamNameCase = false;
       var pick = set[i];
