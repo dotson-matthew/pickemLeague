@@ -23,7 +23,7 @@ const styles = StyleSheet69();
 const SubmissionScreen = ({ navigation, route }) => {
   const [exit, setExit] = React.useState(false);
   const [firstRender, setFirstRender] = React.useState(true);
-
+  const weekNum = route.params.weekNumber;
   const username = route.params.username;
   //const username = "matt2dotson"
   console.log(username);
@@ -87,9 +87,11 @@ const SubmissionScreen = ({ navigation, route }) => {
       }
     }
   }
+
   function hasDeadlinePassed() {
     const currentTime = now.toISOString();
 
+    console.log("Here is currentTime");
     console.log(currentTime);
     var earliestGame;
     for (var i = 0; i < gameData.length; i++) {
@@ -129,6 +131,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     false,
   ];
   const [gameData, setGameData] = React.useState([]);
+  var lockedGames = [];
   var gamesList = [];
   var gamesList2 = [];
   const [isLoading, setIsLoading] = React.useState([]);
@@ -143,11 +146,11 @@ const SubmissionScreen = ({ navigation, route }) => {
     setIsLoading(true);
     setTimeout(() => {
       // simulate a delay
+
       axios
         .get("https://nflpickemapi.azurewebsites.net/GetUIGameModels")
         .then((response) => {
           console.log("Made API call");
-          //setGameData(response.data);
           setGameData(response.data);
         });
     }, 2000);
@@ -176,7 +179,6 @@ const SubmissionScreen = ({ navigation, route }) => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          height: "100vh",
         }}
       >
         <Text>Loading the data</Text>
@@ -238,7 +240,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     if (title2 == selectionSet[8] && title2 != "") {
       style = styles.buttonLittleTriple;
     } else style = styles.buttonLittle;
- 
+
     switch (selNum) {
       case 0: {
         if (title2 == "") {
@@ -362,7 +364,7 @@ const SubmissionScreen = ({ navigation, route }) => {
                         // here is where we connect the backend connection
                         output = getSubmitString(selectionSet);
                         console.log("This is output:");
-                        console.log(output); 
+                        console.log(output);
 
                         axios.post(
                           "https://nflpickemapi.azurewebsites.net/PostPickSet",
@@ -651,10 +653,11 @@ const SubmissionScreen = ({ navigation, route }) => {
   function updateLockedList(database, bool) {
     var pick;
     var sel;
+
     for (var i = 0; i < database.length; i++) {
       pick = database[i];
+      console.log(pick);
       for (var x = 1; x < selectionSet.length + 1; x++) {
-        console.log("X\t" + x + "\tpick.pickID:\t" + pick.pickID);
         if (x == pick.pickID) {
           if (bool) {
             if (pick.pickString != undefined) {
@@ -663,6 +666,14 @@ const SubmissionScreen = ({ navigation, route }) => {
           }
 
           if (pick.isLocked == true) {
+            lockedGames.push({
+              weekNo: weekNum,
+              username: username,
+              gameID: pick.gameID,
+              homePicked: pick.homePicked,
+              pickID: pick.pickID,
+              pickString: pick.pickString,
+            });
             lockedList[x - 1] = true;
           }
           break;
@@ -691,6 +702,7 @@ const SubmissionScreen = ({ navigation, route }) => {
 
       k = gameData[i].kickoff;
       d = gameData[i].deadline;
+
       if (gameData[i].homeSpread !== 0) {
         if (gameData[i].homeSpread > 0) {
           hSym = "";
@@ -887,8 +899,8 @@ const SubmissionScreen = ({ navigation, route }) => {
       var pick = set[i];
 
       var teamName2 = pick.substr(0, 2);
-      console.log("Here is TN2")
-      console.log(teamName2)
+      console.log("Here is TN2");
+      console.log(teamName2);
       var teamBig = false;
       for (var x = 0; x < teamsFirstTwo.length; x++) {
         if (teamName2 == teamsFirstTwo[x]) {
@@ -897,6 +909,15 @@ const SubmissionScreen = ({ navigation, route }) => {
         }
       }
       var gID;
+      if (lockedList[i] == true) {
+        for (var y = 0; y < lockedGames.length; y++) {
+          if (lockedGames[y].pickID == i + 1) {
+            pickList.push(lockedGames[y]);
+          }
+        }
+        continue;
+      }
+
       var home = false;
       for (var z = 0; z < gameData.length; z++) {
         var home2;

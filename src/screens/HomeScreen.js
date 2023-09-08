@@ -22,7 +22,7 @@ function HomeScreen({ navigation, route }) {
   
   const username = route.params.username;
   //const username = "Developer"
-  var weekNumber = 1;
+  const weekNumber = 1;
   return (
     <View style={styles.box}>
       <View style={styles.row}>
@@ -69,7 +69,7 @@ function HomeScreen({ navigation, route }) {
         <View style={styles.row3}>
           <TouchableOpacity
             onPress={() =>
-              navigation.push("Submission", { username: username })
+              navigation.push("Submission", { username: username, weekNumber:weekNumber })
             }
           >
             <View style={styles.buttonRectangle}>
