@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   buttonLittle: {
     backgroundColor: COLORS.lightBlue,
     height: buttonLSizerV, 
-    width: buttonLSizerH*1.15,
+    width: buttonLSizerH*1.10,
     borderWidth: 1.5,
     borderColor: COLORS.orange,
     borderRadius: 10,
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   buttonLittleTriple: {
     backgroundColor: COLORS.yellow,
     height: buttonLSizerV*1.15, 
-    width: buttonLSizerH*1.15,
+    width: buttonLSizerH*1.10,
     borderWidth: 1.5,
     borderColor: COLORS.orange,
     borderRadius: 10,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   buttonLittleLocked: {
     backgroundColor: COLORS.gray,
     height: buttonLSizerV, 
-    width: buttonLSizerH,
+    width: buttonLSizerH*1.10,
     borderWidth: 1.5,
     borderColor: COLORS.orange,
     borderRadius: 10,
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
 
   },
   buttonText:{
-    fontSize: textSizer,
+    fontSize: textSizer*.8,
     fontWeight: 'bold',
     textDecorationLine: 'underline',
     color: 'black',
