@@ -71,8 +71,9 @@ function LoginScreen({ navigation, route }) {
             <TextInput
               style={styles.loginTextInput}
               type="text"
-              value={username}
+              placeholder = {username}
               onChangeText={setUsername}
+              autoCapitalize = 'none'
             />
           </View>
         </View>
@@ -87,8 +88,9 @@ function LoginScreen({ navigation, route }) {
               <TextInput
                 style={styles.loginTextInput}
                 type="text"
-                value={password} 
                 onChangeText={setPassword}
+                placeholder = {password}
+                autoCapitalize = 'none'
               />
             </View>
           </View>
