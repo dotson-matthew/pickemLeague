@@ -22,7 +22,7 @@ function HomeScreen({ navigation, route }) {
   
   const username = route.params.username;
   //const username = "Developer"
-  const weekNumber = 1;
+  const weekNumber = 2;
   return (
     <View style={styles.box}>
       <View style={styles.row}>
