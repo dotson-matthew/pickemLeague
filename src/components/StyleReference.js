@@ -22,7 +22,7 @@ const buttonRSizerV = screenWindow.height * 0.1;
 const buttonLSizerH = screenWindow.width * 0.25;
 const buttonLSizerV = screenWindow.height * 0.1;
 const textSizer = screenWindow.width * 0.06;
-const imageSizer = screenWindow.width * 0.33;
+const imageSizer = screenWindow.width * 0.25;
 const spacerSizerV = screenWindow.height* 0.015;
 const spacerSizerH = screenWindow.width* 0.05;
 
@@ -61,6 +61,13 @@ const styles = StyleSheet.create({
     
   
   },
+  rowLogin: {
+    flexDirection: 'row',
+    
+    justifyContent: 'space-evenly',
+    marginVertical: rowSpacerV*2
+    
+  },
   home_container: {
     flex: 1,
     backgroundColor: '#ffa',
@@ -87,7 +94,31 @@ const styles = StyleSheet.create({
   buttonLittle: {
     backgroundColor: COLORS.lightBlue,
     height: buttonLSizerV, 
-    width: buttonLSizerH,
+    width: buttonLSizerH*1.10,
+    borderWidth: 1.5,
+    borderColor: COLORS.orange,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal:1
+
+  },
+  buttonLittleTriple: {
+    backgroundColor: COLORS.yellow,
+    height: buttonLSizerV*1.15, 
+    width: buttonLSizerH*1.10,
+    borderWidth: 1.5,
+    borderColor: COLORS.orange,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center', 
+    marginHorizontal:1
+
+  },
+  buttonLittleLocked: {
+    backgroundColor: COLORS.gray,
+    height: buttonLSizerV, 
+    width: buttonLSizerH*1.10,
     borderWidth: 1.5,
     borderColor: COLORS.orange,
     borderRadius: 10,
@@ -129,9 +160,25 @@ const styles = StyleSheet.create({
 
   },
   buttonText:{
-    fontSize: textSizer,
+    fontSize: textSizer*.8,
     fontWeight: 'bold',
     textDecorationLine: 'underline',
+    color: 'black',
+    textAlign: 'center',
+    marginTop: 1,
+  },
+  loginTextPrompt:{
+    fontSize: textSizer*.80,
+    fontWeight: 'bold',
+    
+    color: 'black',
+    textAlign: 'center',
+    marginTop: 1,
+  },
+  loginTextInput:{
+    fontSize: textSizer*.60,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
     color: 'black',
     textAlign: 'center',
     marginTop: 1,
@@ -179,7 +226,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     borderColor: 'black',
     borderWidth: 3, 
-    borderRadius: 10
+    borderRadius: 10,
+    marginVertical: 3,
     
 
   },
