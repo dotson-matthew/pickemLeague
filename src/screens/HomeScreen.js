@@ -21,8 +21,9 @@ const styles = StyleSheet69();
 function HomeScreen({ navigation, route }) {
   
   const username = route.params.username;
+  const weekNumber = route.params.weekNo;
   //const username = "Developer"
-  const weekNumber = 2;
+  
   return (
     <View style={styles.box}>
       <View style={styles.row}>
@@ -47,13 +48,13 @@ function HomeScreen({ navigation, route }) {
       <View>
     {//*
     //
-    // <View style={styles.row2}>
-    //   <TouchableOpacity onPress={() => navigation.push("Standings")}>
-    //     <View style={styles.buttonRectangle}>
-    //       <Text style={styles.buttonText}>Standings</Text>
-    //     </View>
-    //   </TouchableOpacity>
-    // </View>
+    <View style={styles.row2}>
+      <TouchableOpacity onPress={() => navigation.push("Standings")}>
+        <View style={styles.buttonRectangle}>
+          <Text style={styles.buttonText}>Standings</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
   //   <View style={styles.row3}>
   //   <TouchableOpacity onPress={() => navigation.push("Board")}>
   //     <View style={styles.buttonRectangle}>
