@@ -261,8 +261,6 @@ const styles = StyleSheet.create({
     borderWidth: 3, 
     borderRadius: 10,
     marginVertical: rowSpacerV
-    
-    
 
   },
   spacer:{
@@ -323,9 +321,12 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+    
   },
   title: {
-    fontSize: 32,
+    fontSize: 25,
+    textAlign: 'center',
+    fontWeight:'bold'
   },
 
   

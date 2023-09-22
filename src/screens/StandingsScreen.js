@@ -92,7 +92,7 @@ const StandingsScreen = () => {
       <Text style={styles.title}>{title}</Text>
     </View>
   );
-  return (
+  return (   
     <SafeAreaView style={styles.container}>
           <FlatList
             data={standingsList}
