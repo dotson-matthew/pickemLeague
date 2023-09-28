@@ -890,7 +890,7 @@ const SubmissionScreen = ({ navigation, route }) => {
       homePicked: home,
       pickID: 0,
       username: username,
-      gameID: 0,
+      gameID: "0",
       pickString: "EMPTY",
     });
     var teamsFirstTwo = ["NY", "DE", "LA", "MI"];
