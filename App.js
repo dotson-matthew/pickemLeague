@@ -36,7 +36,7 @@ const styles = StyleSheet69();
 
 /** Stack Navigation Creation */
 const Stack = createNativeStackNavigator();
-const WeekNumber = 1;
+const WeekNumber = 4;
 
 function App() {
   return (
@@ -80,6 +80,7 @@ function App() {
           options={{
             title: "Home",
           }}
+          initialParams={{weekNo:WeekNumber}}
         />
         <Stack.Screen
         name="Board"
