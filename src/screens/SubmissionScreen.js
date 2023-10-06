@@ -770,7 +770,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     var listSun = [];
     var listMon = [];
 
-    var primeTime = "2023-10-02T00:00:00.000Z";
+    var primeTime = "2023-10-09T00:00:00.000Z";
 
     for (var i = 0; i < list.length; i++) {
       var pyo = false;
