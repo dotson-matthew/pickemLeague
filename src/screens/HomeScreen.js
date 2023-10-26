@@ -85,6 +85,20 @@ function HomeScreen({ navigation, route }) {
         <View style={styles.row3}>
           <TouchableOpacity
             onPress={() =>
+              navigation.push("Standings")
+            }
+          >
+            <View style={styles.buttonRectangle}>
+              <Text style={styles.buttonText}>
+                Week {weekNumber} Standings
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.row3}>
+          <TouchableOpacity
+            onPress={() =>
               navigation.dispatch(StackActions.replace("Login", { params: {} }))
             }
           >
