@@ -25,6 +25,7 @@ const SubmissionScreen = ({ navigation, route }) => {
   const [firstRender, setFirstRender] = React.useState(true);
   const weekNum = route.params.weekNumber;
   const username = route.params.username;
+  const pT = route.params.primeTime;
   //const username = "matt2dotson"
   console.log(username);
   const [selectionSet, setSelectionSet] = React.useState([
@@ -770,7 +771,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     var listSun = [];
     var listMon = [];
 
-    var primeTime = "2023-10-23T00:00:00.000Z";
+    var primeTime = pT;
 
     for (var i = 0; i < list.length; i++) {
       var pyo = false;
