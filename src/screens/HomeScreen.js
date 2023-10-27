@@ -24,7 +24,9 @@ function HomeScreen({ navigation, route }) {
   //const username = "Developer"
   //const weekNumber = 2;
   const weekNumber = route.params.weekNo;
-  const pt = route.params.primeTime;
+  const pt = route.params.pT;
+  //const pt = "2023-10-30T00:00:00.000Z";
+  console.log(pt)
   return (
     <View style={styles.box}>
       <View style={styles.row}>
