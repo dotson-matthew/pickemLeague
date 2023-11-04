@@ -59,17 +59,17 @@ function getWeekNumber(timeNow){
   var six       = "2023-10-17T17:00:00.000Z"; var sixPrime       = "2023-10-16T00:00:00.000Z";
   var seven     = "2023-10-24T17:00:00.000Z"; var sevenPrime     = "2023-10-23T00:00:00.000Z";
   var eight     = "2023-10-31T17:00:00.000Z"; var eightPrime     = "2023-10-30T00:00:00.000Z";
-  var nine      = "2023-11-07T17:00:00.000Z"; var ninePrime      = "2023-11-06T17:00:00.000Z";
-  var ten       = "2023-11-14T17:00:00.000Z"; var tenPrime       = "2023-11-13T17:00:00.000Z";
-  var eleven    = "2023-11-21T17:00:00.000Z"; var elevenPrime    = "2023-11-20T17:00:00.000Z";
-  var twelve    = "2023-11-28T17:00:00.000Z"; var twelvePrime    = "2023-11-27T17:00:00.000Z";
-  var thirteen  = "2023-12-05T17:00:00.000Z"; var thirteenPrime  = "2023-12-04T17:00:00.000Z";
-  var fourteen  = "2023-12-12T17:00:00.000Z"; var fourteenPrime  = "2023-12-11T17:00:00.000Z";
-  var fifteen   = "2023-12-19T17:00:00.000Z"; var fifteenPrime   = "2023-12-18T17:00:00.000Z";
-  var sixteen   = "2023-12-26T17:00:00.000Z"; var sixteenPrime   = "2023-12-25T17:00:00.000Z";
-  var seventeen = "2024-01-02T17:00:00.000Z"; var seventeenPrime = "2024-01-01T17:00:00.000Z";
-  var eighteen  = "2024-01-09T17:00:00.000Z"; var eighteenPrime  = "2024-01-08T17:00:00.000Z";
-  var nineteen  = "2024-01-16T17:00:00.000Z"; var nineteenPrime  = "2024-01-15T17:00:00.000Z";
+  var nine      = "2023-11-07T17:00:00.000Z"; var ninePrime      = "2023-11-06T00:00:00.000Z";
+  var ten       = "2023-11-14T17:00:00.000Z"; var tenPrime       = "2023-11-13T00:00:00.000Z";
+  var eleven    = "2023-11-21T17:00:00.000Z"; var elevenPrime    = "2023-11-20T00:00:00.000Z";
+  var twelve    = "2023-11-28T17:00:00.000Z"; var twelvePrime    = "2023-11-27T00:00:00.000Z";
+  var thirteen  = "2023-12-05T17:00:00.000Z"; var thirteenPrime  = "2023-12-04T00:00:00.000Z";
+  var fourteen  = "2023-12-12T17:00:00.000Z"; var fourteenPrime  = "2023-12-11T00:00:00.000Z";
+  var fifteen   = "2023-12-19T17:00:00.000Z"; var fifteenPrime   = "2023-12-18T00:00:00.000Z";
+  var sixteen   = "2023-12-26T17:00:00.000Z"; var sixteenPrime   = "2023-12-25T00:00:00.000Z";
+  var seventeen = "2024-01-02T17:00:00.000Z"; var seventeenPrime = "2024-01-01T00:00:00.000Z";
+  var eighteen  = "2024-01-09T17:00:00.000Z"; var eighteenPrime  = "2024-01-08T00:00:00.000Z";
+  var nineteen  = "2024-01-16T17:00:00.000Z"; var nineteenPrime  = "2024-01-15T00:00:00.000Z";
   if (y< zero){
     w = 0;
     wp = zeroPrime;
