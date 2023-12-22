@@ -24,6 +24,7 @@ const SubmissionScreen = ({ navigation, route }) => {
   const [exit, setExit] = React.useState(false);
   const [firstRender, setFirstRender] = React.useState(true);
   const weekNum = route.params.weekNumber;
+  var christmas = weekNum == 16;
   const username = route.params.username;
   const pT = route.params.primeTime;
   //const username = "matt2dotson"
@@ -296,7 +297,9 @@ const SubmissionScreen = ({ navigation, route }) => {
       case 6: {
         sund = true;
         if (title2 == "") {
-          title = "SNF";
+          if (christmas) {
+            title = "PYO #7";
+          } else title = "SNF";
         } else {
           title = title2;
         }
@@ -305,7 +308,9 @@ const SubmissionScreen = ({ navigation, route }) => {
       case 7: {
         mond = true;
         if (title2 == "") {
-          title = "MNF";
+          if (christmas) {
+            title = "PYO #8";
+          } else title = "MNF";
         } else {
           title = title2;
         }
@@ -770,6 +775,7 @@ const SubmissionScreen = ({ navigation, route }) => {
     var listPYO = [];
     var listSun = [];
     var listMon = [];
+    var fullList = [];
 
     var primeTime = pT;
 
@@ -785,6 +791,16 @@ const SubmissionScreen = ({ navigation, route }) => {
         listMon.push(list[i]);
         listPYO.push(list[i]);
       } else {
+        if (christmas) {
+          listSun.push(list[i]);
+          listMon.push(list[i]);
+          listPYO.push(list[i]);
+          i++;
+          listSun.push(list[i]);
+          listMon.push(list[i]);
+          listPYO.push(list[i]);
+          continue;
+        }
         var dotw = gameData[i / 2].dayOfWeek;
 
         if (dotw == "M") {
@@ -813,9 +829,9 @@ const SubmissionScreen = ({ navigation, route }) => {
       }
     }
 
-    gameListPYO = listPYO;
-    gameListSun = listSun;
-    gameListMon = listMon;
+    gameListPYO = [...listPYO];
+    gameListSun = [...listSun];
+    gameListMon = [...listMon];
   }
   function getTeamName(pick) {
     var name = "";
