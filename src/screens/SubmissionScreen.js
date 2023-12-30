@@ -25,6 +25,7 @@ const SubmissionScreen = ({ navigation, route }) => {
   const [firstRender, setFirstRender] = React.useState(true);
   const weekNum = route.params.weekNumber;
   var christmas = weekNum == 16;
+  var noMNF = weekNum ==17;
   const username = route.params.username;
   const pT = route.params.primeTime;
   //const username = "matt2dotson"
@@ -310,7 +311,11 @@ const SubmissionScreen = ({ navigation, route }) => {
         if (title2 == "") {
           if (christmas) {
             title = "PYO #8";
-          } else title = "MNF";
+          }
+          else if (noMNF){
+            title = "PYO #7"
+          } 
+          else title = "MNF";
         } else {
           title = title2;
         }
@@ -802,7 +807,7 @@ const SubmissionScreen = ({ navigation, route }) => {
           continue;
         }
         var dotw = gameData[i / 2].dayOfWeek;
-
+        
         if (dotw == "M") {
           mon = true;
         } else if (dotw == "S" && gameData[i / 2].kickoff > primeTime) {
@@ -831,7 +836,11 @@ const SubmissionScreen = ({ navigation, route }) => {
 
     gameListPYO = [...listPYO];
     gameListSun = [...listSun];
-    gameListMon = [...listMon];
+    if (noMNF){
+      gameListMon = [...listPYO];
+    } else {
+      gameListMon = [...listMon];
+    }
   }
   function getTeamName(pick) {
     var name = "";
