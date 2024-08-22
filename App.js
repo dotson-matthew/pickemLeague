@@ -50,7 +50,7 @@ function getWeekNumber(timeNow){
   //var primeTime = "2023-10-30T00:00:00.000Z";
   var y = timeNow;
   var w; var wp;
-  var zero      = "2023-09-03T17:00:00.000Z"; var zeroPrime      = "2024-09-02T00:00:00.000Z";
+  var zero      = "2024-09-03T17:00:00.000Z"; var zeroPrime      = "2024-09-02T00:00:00.000Z";
   var one       = "2024-09-10T17:00:00.000Z"; var onePrime       = "2024-09-09T00:00:00.000Z";
   var two       = "2024-09-17T17:00:00.000Z"; var twoPrime       = "2024-09-16T00:00:00.000Z";
   var three     = "2024-09-24T17:00:00.000Z"; var threePrime     = "2024-09-23T00:00:00.000Z";

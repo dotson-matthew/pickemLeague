@@ -380,6 +380,7 @@ const SubmissionScreen = ({ navigation, route }) => {
                         axios.post(
                           "https://nflpickemapi.azurewebsites.net/PostPickSet",
                           getSubmitString(selectionSet)
+
                         );
                         setModalVisible(!modalVisible);
                         setExit(true);
