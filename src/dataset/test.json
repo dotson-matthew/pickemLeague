@@ -1,0 +1,69 @@
+"week3": {
+    "PYO1": {
+      "team": "KC",
+      "opponent": "JAX",
+      "spreadA": "",
+      "spreadH": "",
+      "result": "",
+      "triplePlay": false
+    },
+    "PYO2": {
+      "team": "",
+      "opponent": "",
+      "spread": "",
+      "result": "",
+      "triplePlay": ""
+    },
+    "PYO3": {
+      "team": "",
+      "opponent": "",
+      "spread": "",
+      "result": "",
+      "triplePlay": ""
+    },
+    "PYO4": {
+      "team": "",
+      "opponent": "",
+      "spread": "",
+      "result": "",
+      "triplePlay": ""
+    },
+    "PYO5": {
+      "team": "",
+      "opponent": "",
+      "spread": "",
+      "result": "",
+      "triplePlay": ""
+    },
+    "PYO6": {
+      "team": "",
+      "opponent": "",
+      "spread": "",
+      "result": "",
+      "triplePlay": ""
+    },
+    "SNF": {
+      "team": "",
+      "opponent": "",
+      "spread": "",
+      "result": "",
+      "triplePlay": ""
+    },
+    "MNF": {
+      "team": "",
+      "opponent": "",
+      "spread": "",
+      "result": "",
+      "triplePlay": ""
+    },
+    "triplePlay": {
+      "PickId": "",
+      "Winner?": "false"
+    },
+    "wins": {
+      "amount": 0
+    },
+    "losses": {
+      "amount": 0
+    }
+  },

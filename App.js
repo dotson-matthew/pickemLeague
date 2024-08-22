@@ -47,29 +47,29 @@ const primeTime = block.wp
 
 
 function getWeekNumber(timeNow){
-  var primeTime = "2023-10-30T00:00:00.000Z";
+  //var primeTime = "2023-10-30T00:00:00.000Z";
   var y = timeNow;
   var w; var wp;
-  var zero      = "2023-09-06T17:00:00.000Z"; var zeroPrime      = "2023-09-06T00:00:00.000Z";
-  var one       = "2023-09-12T17:00:00.000Z"; var onePrime       = "2023-09-11T00:00:00.000Z";
-  var two       = "2023-09-19T17:00:00.000Z"; var twoPrime       = "2023-09-18T00:00:00.000Z";
-  var three     = "2023-09-26T17:00:00.000Z"; var threePrime     = "2023-25-06T00:00:00.000Z";
-  var four      = "2023-10-03T17:00:00.000Z"; var fourPrime      = "2023-10-02T00:00:00.000Z";
-  var five      = "2023-10-10T17:00:00.000Z"; var fivePrime      = "2023-10-09T00:00:00.000Z";
-  var six       = "2023-10-17T17:00:00.000Z"; var sixPrime       = "2023-10-16T00:00:00.000Z";
-  var seven     = "2023-10-24T17:00:00.000Z"; var sevenPrime     = "2023-10-23T00:00:00.000Z";
-  var eight     = "2023-10-31T17:00:00.000Z"; var eightPrime     = "2023-10-30T00:00:00.000Z";
-  var nine      = "2023-11-07T17:00:00.000Z"; var ninePrime      = "2023-11-06T00:00:00.000Z";
-  var ten       = "2023-11-14T17:00:00.000Z"; var tenPrime       = "2023-11-13T00:00:00.000Z";
-  var eleven    = "2023-11-21T17:00:00.000Z"; var elevenPrime    = "2023-11-20T00:00:00.000Z";
-  var twelve    = "2023-11-28T17:00:00.000Z"; var twelvePrime    = "2023-11-27T00:00:00.000Z";
-  var thirteen  = "2023-12-05T17:00:00.000Z"; var thirteenPrime  = "2023-12-04T00:00:00.000Z";
-  var fourteen  = "2023-12-12T17:00:00.000Z"; var fourteenPrime  = "2023-12-11T00:00:00.000Z";
-  var fifteen   = "2023-12-19T17:00:00.000Z"; var fifteenPrime   = "2023-12-18T00:00:00.000Z";
-  var sixteen   = "2023-12-26T17:00:00.000Z"; var sixteenPrime   = "2023-12-25T00:00:00.000Z";
-  var seventeen = "2024-01-02T17:00:00.000Z"; var seventeenPrime = "2024-01-01T00:00:00.000Z";
-  var eighteen  = "2024-01-09T17:00:00.000Z"; var eighteenPrime  = "2024-01-08T00:00:00.000Z";
-  var nineteen  = "2024-01-16T17:00:00.000Z"; var nineteenPrime  = "2024-01-15T00:00:00.000Z";
+  var zero      = "2024-09-03T17:00:00.000Z"; var zeroPrime      = "2024-09-02T00:00:00.000Z";
+  var one       = "2024-09-10T17:00:00.000Z"; var onePrime       = "2024-09-09T00:00:00.000Z";
+  var two       = "2024-09-17T17:00:00.000Z"; var twoPrime       = "2024-09-16T00:00:00.000Z";
+  var three     = "2024-09-24T17:00:00.000Z"; var threePrime     = "2024-09-23T00:00:00.000Z";
+  var four      = "2024-10-01T17:00:00.000Z"; var fourPrime      = "2024-09-30T00:00:00.000Z";
+  var five      = "2024-10-08T17:00:00.000Z"; var fivePrime      = "2024-10-07T00:00:00.000Z";
+  var six       = "2024-10-15T17:00:00.000Z"; var sixPrime       = "2024-10-14T00:00:00.000Z";
+  var seven     = "2024-10-22T17:00:00.000Z"; var sevenPrime     = "2024-10-21T00:00:00.000Z";
+  var eight     = "2024-10-29T17:00:00.000Z"; var eightPrime     = "2024-10-28T00:00:00.000Z";
+  var nine      = "2024-11-05T17:00:00.000Z"; var ninePrime      = "2024-11-04T00:00:00.000Z";
+  var ten       = "2024-11-12T17:00:00.000Z"; var tenPrime       = "2024-11-11T00:00:00.000Z";
+  var eleven    = "2024-11-19T17:00:00.000Z"; var elevenPrime    = "2024-11-18T00:00:00.000Z";
+  var twelve    = "2024-11-26T17:00:00.000Z"; var twelvePrime    = "2024-11-25T00:00:00.000Z";
+  var thirteen  = "2024-12-03T17:00:00.000Z"; var thirteenPrime  = "2024-12-02T00:00:00.000Z";
+  var fourteen  = "2024-12-10T17:00:00.000Z"; var fourteenPrime  = "2024-12-09T00:00:00.000Z";
+  var fifteen   = "2024-12-17T17:00:00.000Z"; var fifteenPrime   = "2024-12-16T00:00:00.000Z";
+  var sixteen   = "2024-12-24T17:00:00.000Z"; var sixteenPrime   = "2024-12-23T00:00:00.000Z";
+  var seventeen = "2024-12-31T17:00:00.000Z"; var seventeenPrime = "2024-12-30T00:00:00.000Z";
+  var eighteen  = "2025-01-07T17:00:00.000Z"; var eighteenPrime  = "2025-01-06T00:00:00.000Z";
+  var nineteen  = "2025-01-14T17:00:00.000Z"; var nineteenPrime  = "2025-01-13T00:00:00.000Z";
   if (y< zero){
     w = 0;
     wp = zeroPrime;
@@ -158,7 +158,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Login"
+        initialRouteName="Home"
         screenOptions={{
           headerStyle: {
             backgroundColor: "#f4511e",
