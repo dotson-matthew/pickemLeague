@@ -717,11 +717,11 @@ const SubmissionScreen = ({ navigation, route }) => {
 
       if (gameData[i].homeSpread !== 0) {
         if (gameData[i].homeSpread > 0) {
-          hSym = "";
+          hSym = "+";
           aSym = "";
         } else {
           hSym = "";
-          aSym = "";
+          aSym = "+";
         }
       } else aSym = hSym = "+";
 
